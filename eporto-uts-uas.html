@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="id" class="dark transition-colors duration-500">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Portofolio Mahasiswa PPG</title>
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        brand: { 100: '#e0e7ff', 500: '#6366f1', 600: '#4f46e5', 900: '#312e81' },
+                        accent: { pink: '#ec4899', yellow: '#f59e0b', teal: '#14b8a6' }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 2s infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 3s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ========== LOADER BARU (Binary Rain + Informatika Theme) ========== */
+        #loader {
+            transition: opacity 0.8s ease, visibility 0.8s;
+            overflow: hidden;
+        }
+
+        #binary-rain {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .binary-digit {
+            position: absolute;
+            font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+            font-weight: 700;
+            pointer-events: none;
+            user-select: none;
+            will-change: transform;
+            animation: binaryRise linear infinite;
+        }
+
+        @keyframes binaryRise {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+            6% {
+                opacity: var(--b-opacity, 0.4);
+            }
+            92% {
+                opacity: var(--b-opacity, 0.4);
+            }
+            100% {
+                transform: translateY(-110vh);
+                opacity: 0;
+            }
+        }
+
+        /* Glow pulse untuk card loader */
+        @keyframes glowPulse {
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(20, 184, 166, 0.25), 0 0 50px rgba(99, 102, 241, 0.15);
+            }
+            50% {
+                box-shadow: 0 0 35px rgba(20, 184, 166, 0.45), 0 0 70px rgba(99, 102, 241, 0.3);
+            }
+        }
+
+        @keyframes blinkCursor {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .loader-card {
+            animation: glowPulse 2.5s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+        }
+
+        .blinking-cursor {
+            animation: blinkCursor 0.8s step-end infinite;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #14b8a6, #6366f1, #ec4899);
+            border-radius: 6px;
+            transition: width 0.25s ease;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 6px;
+            animation: shimmer 1.2s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.9;
+            }
+        }
+
+        /* Scan line effect */
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: rgba(20, 184, 166, 0.5);
+            animation: scanDown 3s linear infinite;
+            pointer-events: none;
+            z-index: 11;
+        }
+
+        @keyframes scanDown {
+            0% {
+                top: -2px;
+            }
+            100% {
+                top: 100%;
+            }
+        }
+
+        /* ========== BUBBLE ANIMASI LATAR ========== */
+        .bubbles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            border-radius: 50%;
+            background: #1f2937;
+            animation: rise linear infinite;
+        }
+        .dark .bubble {
+            background: #ffffff;
+        }
+        @keyframes rise {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-110vh) scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ========== FOTO PROFIL - STYLE BARU (PARTIKEL + 3D TILT + WATERMARK) ========== */
+        .floating-wrapper {
+            animation: floatingProfile 5s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+            display: inline-block;
+        }
+        @keyframes floatingProfile {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-18px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .photo-particles-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 420px;
+            height: 420px;
+            pointer-events: none;
+            z-index: 0;
+            overflow: visible;
+        }
+        @media (max-width: 768px) {
+            .photo-particles-container {
+                width: 320px;
+                height: 320px;
+            }
+        }
+
+        .photo-particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.55;
+            filter: blur(2.5px);
+        }
+        .photo-particle.white {
+            background-color: #ffffff;
+            box-shadow: 0 0 18px rgba(255, 255, 255, 0.7);
+        }
+        .photo-particle.black {
+            background-color: #1a1a2e;
+            box-shadow: 0 0 12px rgba(150, 150, 220, 0.4);
+        }
+        .dark .photo-particle.white {
+            background-color: #e2e8f0;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        .dark .photo-particle.black {
+            background-color: #0f0f1a;
+            box-shadow: 0 0 14px rgba(180, 180, 220, 0.35);
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(var(--dx1), var(--dy1)) scale(1.25);
+            }
+            66% {
+                transform: translate(var(--dx2), var(--dy2)) scale(0.75);
+            }
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+        }
+
+        .photo-container {
+            position: relative;
+            width: 280px;
+            height: auto;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.55);
+            background: #fff;
+            transform-style: preserve-3d;
+            transition: border-color 0.4s ease, box-shadow 0.4s ease;
+            z-index: 10;
+        }
+        .dark .photo-container {
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+        }
+        @media (min-width: 768px) {
+            .photo-container {
+                width: 340px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .photo-container {
+                width: 380px;
+            }
+        }
+
+        .photo-container::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            background: linear-gradient(45deg, #ec4899, #6366f1, #14b8a6, #f59e0b);
+            border-radius: 24px;
+            z-index: -1;
+            transition: all 0.5s ease;
+            opacity: 0.9;
+        }
+        .photo-container:hover::before {
+            transform: scale(1.04) rotate(2deg);
+            opacity: 1;
+            filter: brightness(1.1);
+        }
+
+        .image-area {
+            width: 100%;
+            height: 330px;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
+        @media (min-width: 768px) {
+            .image-area {
+                height: 400px;
+            }
+        }
+        @media (min-width: 1024px) {
+            .image-area {
+                height: 450px;
+            }
+        }
+
+        .image-area img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.7s ease, transform 0.75s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .photo-main {
+            opacity: 1;
+            z-index: 1;
+        }
+        .photo-hover {
+            opacity: 0;
+            z-index: 2;
+            transform: scale(1.08);
+        }
+        .photo-container:hover .photo-main {
+            opacity: 0;
+        }
+        .photo-container:hover .photo-hover {
+            opacity: 1;
+            transform: scale(1.14);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.45) 40%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            z-index: 3;
+            pointer-events: none;
+        }
+        .photo-container:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 20px 15px;
+            color: white;
+            text-align: center;
+            z-index: 4;
+            transform: translateY(18px);
+            opacity: 0;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.6s ease;
+            pointer-events: none;
+        }
+        .photo-container:hover .photo-caption {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .photo-caption h3 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+        @media (min-width: 768px) {
+            .photo-caption h3 {
+                font-size: 1.4rem;
+            }
+        }
+        .photo-caption p {
+            font-size: 0.8rem;
+            color: #dcdcdc;
+            line-height: 1.4;
+            font-weight: 300;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .watermark-area {
+            height: 95px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            justify-content: space-between;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            font-family: 'Segoe UI', 'Poppins', sans-serif;
+            color: #000;
+        }
+        .dark .watermark-area {
+            background: #1e293b;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f1f5f9;
+        }
+        .left-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .phone-name {
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.3px;
+        }
+        .date {
+            font-size: 0.6rem;
+            color: #666;
+            margin-top: 2px;
+        }
+        .dark .date {
+            color: #94a3b8;
+        }
+        .divider {
+            width: 1px;
+            height: 30px;
+            background: #ccc;
+            margin: 0 8px;
+        }
+        .dark .divider {
+            background: #475569;
+        }
+        .right-info {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .specs {
+            font-weight: 700;
+            font-size: 0.7rem;
+            letter-spacing: 0.2px;
+        }
+        .gps {
+            font-size: 0.55rem;
+            color: #666;
+            margin-top: 2px;
+        }
+        .dark .gps {
+            color: #94a3b8;
+        }
+        .hasselblad-logo {
+            font-size: 1.2rem;
+            font-style: italic;
+            font-weight: 800;
+            color: #000;
+            margin-left: 6px;
+            line-height: 1;
+        }
+        .dark .hasselblad-logo {
+            color: #f1f5f9;
+        }
+
+        @media (max-width: 360px) {
+            .photo-container {
+                width: 260px;
+            }
+            .image-area {
+                height: 300px;
+            }
+            .watermark-area {
+                height: 85px;
+                padding: 0 10px;
+            }
+        }
+
+        /* Timeline styling */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, #6366f1, #ec4899);
+            transform: translateX(-50%);
+        }
+        @media (max-width: 768px) {
+            .timeline-container::before {
+                left: 20px;
+            }
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass {
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Section Transition */
+        .page-section {
+            display: none;
+            opacity: 0;
+        }
+        .page-section.active {
+            display: block;
+            animation: fadeIn 0.6s ease forwards;
+        }
+        .page-section.fade-out {
+            animation: fadeOut 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6366f1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4f46e5;
+        }
+
+        .card-daerah:hover .card-img {
+            transform: scale(1.1);
+        }
+        .card-img {
+            transition: transform 0.7s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- ========== LOADER SCREEN (Binary Rain + Informatika Theme) ========== -->
+    <div id="loader" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gray-950">
+        <!-- Binary Rain Container -->
+        <div id="binary-rain" aria-hidden="true"></div>
+
+        <!-- Scan line effect -->
+        <div class="scan-line" aria-hidden="true"></div>
+
+        <!-- Center Loader Card -->
+        <div class="loader-card relative z-10 bg-gray-900/85 backdrop-blur-xl rounded-2xl p-8 md:p-10 border border-teal-500/25 shadow-2xl max-w-md w-11/12 text-center">
+            <!-- Icon -->
+            <div class="mb-6">
+                <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-teal-500/10 border-2 border-teal-500/30 mb-4 relative">
+                    <i class="fas fa-laptop-code text-3xl text-teal-400"></i>
+                    <!-- Rotating ring around icon -->
+                    <svg class="absolute inset-0 w-full h-full animate-spin-slow" viewBox="0 0 80 80" style="animation-duration: 4s;">
+                        <circle cx="40" cy="40" r="36" fill="none" stroke="rgba(20,184,166,0.3)" stroke-width="2" stroke-dasharray="20 180" stroke-linecap="round" />
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-extrabold text-white tracking-widest uppercase">E-Portofolio</h1>
+                <p class="text-teal-400/80 text-sm mt-2 font-mono tracking-wide">
+                    <span class="text-teal-500">&gt;</span> System Initializing<span class="blinking-cursor text-teal-400">_</span>
+                </p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar mb-3">
+                <div id="progress-fill" class="progress-fill" style="width: 0%;"></div>
+            </div>
+
+            <!-- Percentage Display -->
+            <div class="flex items-center justify-center gap-2">
+                <span class="text-xs text-teal-500/60 font-mono">[</span>
+                <span id="loading-percent" class="text-3xl font-bold font-mono text-teal-400 tabular-nums">0%</span>
+                <span class="text-xs text-teal-500/60 font-mono">]</span>
+            </div>
+
+            <!-- Subtle hint -->
+            <p class="text-gray-500 text-xs mt-4 font-mono tracking-widest uppercase opacity-60">PPG Prajabatan · UNY</p>
+        </div>
+    </div>
+
+    <!-- ========== BUBBLE BACKGROUND ========== -->
+    <div class="bubbles-container" id="bubbles-container"></div>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="fixed w-full z-40 glass shadow-lg transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 cursor-pointer" onclick="switchPage('profil')">
+                    <span class="text-2xl font-extrabold text-gradient bg-gradient-to-r from-brand-500 via-accent-pink to-accent-teal">E-Portofolio.</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <button onclick="switchPage('profil')" class="nav-link active px-3 py-2 rounded-md text-sm font-medium hover:text-brand-500 dark:hover:text-brand-400 transition">Profil</button>
+                        <div class="relative group">
+                            <button class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-brand-500 transition inline-flex items-center">E-Portofolio 1 <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+                            <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg glass opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left z-50">
+                                <div class="py-1">
+                                    <button onclick="switchPage('artefak')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Artefak</button>
+                                    <button onclick="switchPage('penilaian')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Penilaian</button>
+                                    <button onclick="switchPage('model-guru')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Model Guru</button>
+                                    <button onclick="switchPage('dokumentasi')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Dokumentasi</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative group">
+                            <button class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-brand-500 transition inline-flex items-center">E-Portofolio 2 <i class="fas fa-chevron-down ml-1 text-xs"></i></button>
+                            <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg glass opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left z-50">
+                                <div class="py-1">
+                                    <button onclick="switchPage('refleksi')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Refleksi PPL 1</button>
+                                    <button onclick="switchPage('filosofi')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Filosofi Mengajar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        <i class="fas fa-moon dark:hidden text-gray-800"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                    <div class="-mr-2 flex md:hidden">
+                        <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md hover:text-brand-500 hover:bg-gray-200 dark:hover:bg-gray-800 focus:outline-none"><i class="fas fa-bars text-xl"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 absolute w-full shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="switchPage('profil'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Profil</button>
+                <div class="pl-3 py-1 text-sm font-bold text-gray-500 uppercase tracking-wider">E-Portofolio 1</div>
+                <button onclick="switchPage('artefak'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Artefak</button>
+                <button onclick="switchPage('penilaian'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Penilaian</button>
+                <button onclick="switchPage('model-guru'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Model Guru</button>
+                <button onclick="switchPage('dokumentasi'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Dokumentasi</button>
+                <div class="pl-3 py-1 text-sm font-bold text-gray-500 uppercase tracking-wider mt-2">E-Portofolio 2</div>
+                <button onclick="switchPage('refleksi'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Refleksi PPL 1</button>
+                <button onclick="switchPage('filosofi'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Filosofi Mengajar</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 pb-12">
+        <!-- HALAMAN PROFIL -->
+        <section id="profil" class="page-section active max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col-reverse lg:flex-row items-center justify-between py-12 gap-12">
+                <div class="lg:w-3/5 space-y-6">
+                    <div class="inline-block px-4 py-2 rounded-full bg-brand-100 dark:bg-brand-900 text-brand-600 dark:text-brand-100 font-semibold text-sm mb-2 animate-pulse-slow">Selamat Datang di Ruang Belajar Saya 🚀</div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">Halo, Saya <br><span class="text-gradient bg-gradient-to-r from-brand-500 to-accent-pink">Muhammad Ridho Sani S.Kom</span></h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">Saya adalah mahasiswa Pendidikan Profesi Guru (PPG) Prajabatan Universitas Negeri Yogyakarta. E-Portofolio ini merupakan rekam jejak perjalanan, karya, pengalaman, serta refleksi saya selama menempuh pendidikan profesi guru sebagai bagian dari proses bertransformasi menjadi pendidik yang profesional, inovatif, adaptif terhadap perkembangan teknologi, dan senantiasa berpihak pada peserta didik.
+
+                        Dalam perjalanan PPG ini, saya melaksanakan Praktik Pengalaman Lapangan (PPL) di SMK Negeri 5 Yogyakarta, dengan mengampu mata pelajaran Informatika serta Koding dan Kecerdasan Artifisial (KKA). Melalui pengalaman tersebut, saya memperoleh kesempatan untuk merancang, melaksanakan, dan mengevaluasi pembelajaran yang relevan dengan kebutuhan abad ke-21, sekaligus mengintegrasikan teknologi digital dan kecerdasan artifisial dalam proses pembelajaran.</p>
+                </div>
+
+                <!-- ========== FOTO PROFIL DENGAN PARTIKEL + 3D TILT + WATERMARK ========== -->
+                <div class="lg:w-2/5 flex justify-center items-center relative">
+                    <div class="floating-wrapper relative inline-block" id="floating-photo-wrapper">
+                        <div class="photo-particles-container" id="photo-particles-container" aria-hidden="true"></div>
+
+                        <!-- Kartu foto + watermark -->
+                        <div class="photo-container" id="photo-card">
+                            <div class="image-area">
+                                <img src="foto1.jpeg" class="photo-main" alt="Foto Mahasiswa 1">
+                                <img src="foto2.jpeg" class="photo-hover" alt="Foto Mahasiswa 2">
+                                <div class="photo-overlay"></div>
+                                <div class="photo-caption">
+                                    <h3>Muhammad Ridho Sani</h3>
+                                    <p>Mahasiswa PPG Prajabatan — Calon Pendidik Profesional</p>
+                                </div>
+                            </div>
+                            <!-- Watermark ala kamera HP -->
+                            <div class="watermark-area">
+                                <div class="left-info">
+                                    <span class="phone-name">OPPO Find N2 Flip</span>
+                                    <span class="date">2026.06.06 14:01</span>
+                                </div>
+                                <div class="hasselblad-logo">H</div>
+                                <div class="divider"></div>
+                                <div class="right-info">
+                                    <span class="specs">5mm f/1.8 1/20 ISO1411</span>
+                                    <span class="gps">106°8'56.83"E 6°6'43.72"S</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keunikan Jepara (dengan foto) -->
+            <div class="py-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Saya lahir di <span class="text-accent-yellow">Jepara</span></h2>
+                    <p class="text-gray-600 dark:text-gray-400">Kota kelahiranku yang kaya akan budaya dan sejarah, menginspirasi perjalananku.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div onclick="openModal('modal-ukiran')" class="card-daerah bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 cursor-pointer overflow-hidden group">
+                        <div class="h-40 overflow-hidden relative"><img src="https://imgcdn.espos.id/@espos/images/2022/04/jepara-.jpg?quality=60" class="card-img w-full h-full object-cover" alt="Ukiran Jepara"><div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-center"><!--<i class="fas fa-tree text-5xl text-white drop-shadow-lg group-hover:scale-110 transition-transform">--></i></div></div>
+                        <div class="p-6"><h3 class="text-xl font-bold mb-2 text-brand-600 dark:text-brand-400">Jepara Kota Ukir</h3><p class="text-sm text-gray-500 dark:text-gray-400">Seni pahat kayu yang mendunia, melambangkan ketelitian dan kesabaran.</p></div>
+                    </div>
+                    <div onclick="openModal('modal-kartini')" class="card-daerah bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 cursor-pointer overflow-hidden group">
+                        <div class="h-40 overflow-hidden relative"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAePRq-06VbxTN6AlSf7cUy2qfuNYmEUcr5Y4b79BWZA&s=10" class="card-img w-full h-full object-cover" alt="Bumi Kartini"><div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-center"><!--<i class="fas fa-book-reader text-5xl text-white drop-shadow-lg group-hover:scale-110 transition-transform">--></i></div></div>
+                        <div class="p-6"><h3 class="text-xl font-bold mb-2 text-accent-pink">Bumi Kartini</h3><p class="text-sm text-gray-500 dark:text-gray-400">Tempat lahirnya pahlawan emansipasi wanita, inspirasi pendidikan untuk semua.</p></div>
+                    </div>
+                    <div onclick="openModal('modal-pantai')" class="card-daerah bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 cursor-pointer overflow-hidden group">
+                        <div class="h-40 overflow-hidden relative"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfnZ9q1_bvtSsjVlDRQkXGMI62KoUg5LJtrL-K8r0PLQ&s=10" class="card-img w-full h-full object-cover" alt="Pesona Bahari"><div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-center justify-center"><!--<i class="fas fa-water text-5xl text-white drop-shadow-lg group-hover:scale-110 transition-transform">--></i></div></div>
+                        <div class="p-6"><h3 class="text-xl font-bold mb-2 text-accent-teal">Pesona Bahari</h3><p class="text-sm text-gray-500 dark:text-gray-400">Keindahan Pantai Kartini hingga Karimunjawa yang menenangkan jiwa.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kutipan & Narasi -->
+            <div class="py-16 bg-brand-50 dark:bg-gray-800/50 rounded-3xl p-8 md:p-12 my-12 relative overflow-hidden shadow-inner animate-float-delayed">
+                <div class="absolute top-0 right-0 -mr-16 -mt-16 text-brand-200 dark:text-gray-700 opacity-50 text-9xl"><i class="fas fa-quote-right"></i></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-bold mb-6 text-brand-600 dark:text-brand-300">Mengapa Saya Ingin Menjadi Guru?</h2>
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8 italic">"Inspirasi terbesar saya berawal dari keyakinan bahwa pendidikan adalah kunci memutus rantai ketidaktahuan. Saya bercita-cita menjadi guru profesional bukan sekadar untuk mentransfer ilmu, melainkan untuk menyalakan api keingintahuan dalam diri setiap anak."</p>
+                    <div class="border-l-4 border-accent-pink pl-6 py-2"><blockquote class="text-xl md:text-2xl font-semibold text-gray-800 dark:text-white">"Guru yang baik itu bagaikan lilin; ia menghabiskan dirinya untuk menerangi jalan bagi orang lain."</blockquote><p class="mt-2 text-gray-500">— Mustafa Kemal Atatürk</p></div>
+                </div>
+            </div>
+
+            <!-- Jejak Pendidikan (Timeline) -->
+            <div class="py-16">
+                <h2 class="text-3xl font-bold text-center mb-12">Jejak Pendidikan</h2>
+                <div class="relative timeline-container max-w-4xl mx-auto pb-10">
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-8"><div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white dark:border-gray-900 bg-brand-500 text-white z-10 font-bold shadow absolute left-[20px] md:left-1/2 transform -translate-x-1/2 group-hover:scale-125 transition-transform">1</div><div class="w-[calc(100%-60px)] md:w-[calc(50%-30px)] ml-[60px] md:ml-0 p-4 rounded-xl glass shadow-md group-hover:shadow-lg transition-all duration-300"><h3 class="font-bold text-lg text-brand-600 dark:text-brand-400">Sekolah Dasar (SD)</h3><p class="text-sm text-gray-600 dark:text-gray-300">SD Negeri 101736 Medan Krio (Sumatra Utara) | Lulus Tahun 2014</p></div></div>
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-8"><div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white dark:border-gray-900 bg-accent-pink text-white z-10 font-bold shadow absolute left-[20px] md:left-1/2 transform -translate-x-1/2 group-hover:scale-125 transition-transform">2</div><div class="w-[calc(100%-60px)] md:w-[calc(50%-30px)] ml-[60px] md:ml-0 p-4 rounded-xl glass shadow-md group-hover:shadow-lg transition-all duration-300"><h3 class="font-bold text-lg text-accent-pink">Sekolah Menengah Pertama (SMP)</h3><p class="text-sm text-gray-600 dark:text-gray-300">SMP Negeri 40 Medan (Sumatra Utara) | Lulus Tahun 2017</p></div></div>
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-8"><div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white dark:border-gray-900 bg-accent-teal text-white z-10 font-bold shadow absolute left-[20px] md:left-1/2 transform -translate-x-1/2 group-hover:scale-125 transition-transform">3</div><div class="w-[calc(100%-60px)] md:w-[calc(50%-30px)] ml-[60px] md:ml-0 p-4 rounded-xl glass shadow-md group-hover:shadow-lg transition-all duration-300"><h3 class="font-bold text-lg text-accent-teal">Sekolah Menengah Kejuruan (SMK)</h3><p class="text-sm text-gray-600 dark:text-gray-300">SMK Muhammadiyah 3 Mayong Jepara (Jawa Tengah) | Lulus Tahun 2020</p></div></div>
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-8"><div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white dark:border-gray-900 bg-accent-yellow text-white z-10 font-bold shadow absolute left-[20px] md:left-1/2 transform -translate-x-1/2 group-hover:scale-125 transition-transform">4</div><div class="w-[calc(100%-60px)] md:w-[calc(50%-30px)] ml-[60px] md:ml-0 p-4 rounded-xl glass shadow-md group-hover:shadow-lg transition-all duration-300"><h3 class="font-bold text-lg text-accent-yellow">Sarjana (S1) Pendidikan</h3><p class="text-sm text-gray-600 dark:text-gray-300">STMIK Borneo Internasional Balikpapan (Kalimantan Timur) | Lulus Tahun 2025</p></div></div>
+                    <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"><div class="flex items-center justify-center w-12 h-12 rounded-full border-4 border-white dark:border-gray-900 bg-gradient-to-r from-brand-500 to-accent-pink text-white z-10 font-bold shadow absolute left-[20px] md:left-1/2 transform -translate-x-1/2 group-hover:scale-125 transition-transform animate-pulse">🌟</div><div class="w-[calc(100%-60px)] md:w-[calc(50%-30px)] ml-[60px] md:ml-0 p-4 rounded-xl bg-gradient-to-br from-brand-50 to-pink-50 dark:from-gray-800 dark:to-gray-800 border border-brand-200 dark:border-gray-700 shadow-xl group-hover:-translate-y-1 transition-transform"><h3 class="font-bold text-xl text-gradient bg-gradient-to-r from-brand-600 to-accent-pink">PPG Prajabatan</h3><p class="text-sm text-gray-700 dark:text-gray-300">LPTK Universitas Negeri Yogyakarta | Sedang Ditempuh</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN ARTEFAK -->
+        <section id="artefak" class="page-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-8 border-b border-gray-200 dark:border-gray-700 mb-8"><h2 class="text-3xl md:text-4xl font-bold text-brand-600 dark:text-brand-400">Artefak Pembelajaran</h2><p class="mt-2 text-gray-600 dark:text-gray-400">Kumpulan RPP, hasil kerja peserta didik, dan media pembelajaran.</p></div>
+            <div class="space-y-8" id="artefak-siklus"></div>
+            <div class="mt-12 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                <div class="bg-gray-800 dark:bg-gray-900 px-6 py-4"><h3 class="text-xl font-bold text-white flex items-center"><i class="fas fa-video mr-2 text-red-500"></i> Video Praktik Pembelajaran</h3></div>
+                <div class="p-6 flex flex-col lg:flex-row gap-6 items-center">
+                    <div class="w-full lg:w-1/2"><div class="relative pt-[56.25%] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-inner group"><img src="https://placehold.co/800x450/374151/ffffff?text=Thumbnail+Video" alt="Thumbnail" class="absolute top-0 left-0 w-full h-full object-cover"><button onclick="openVideoModal()" class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition-colors"><i class="fas fa-play-circle text-6xl text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all"></i></button></div></div>
+                    <div class="w-full lg:w-1/2 space-y-4"><h4 class="text-2xl font-bold text-gray-800 dark:text-white">Pelaksanaan Pembelajaran Model PjBL</h4><p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Video ini merupakan dokumentasi pelaksanaan praktik mengajar menggunakan model Project Based Learning.</p><div class="flex gap-3"><span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs font-semibold"><i class="far fa-clock mr-1"></i> 15:00 Menit</span><span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs font-semibold"><i class="fas fa-map-marker-alt mr-1"></i> Kelas X SMA</span></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN PENILAIAN -->
+        <section id="penilaian" class="page-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-8 border-b border-gray-200 dark:border-gray-700 mb-8 text-center"><div class="inline-flex justify-center items-center w-16 h-16 rounded-full bg-accent-yellow/20 text-accent-yellow mb-4 text-3xl animate-float"><i class="fas fa-star"></i></div><h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Lembar Penilaian Guru Pamong</h2><p class="mt-2 text-gray-600 dark:text-gray-400">Dokumen evaluasi pelaksanaan pembelajaran dari Guru Pamong untuk setiap siklus.</p></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto" id="penilaian-cards"></div>
+        </section>
+
+        <!-- HALAMAN MODEL GURU -->
+        <section id="model-guru" class="page-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-12"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold mb-4">Profil <span class="text-gradient bg-gradient-to-r from-accent-teal to-brand-500">Model Guru</span> Impian</h2><p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">Visi, misi, dan karakter esensial yang terus saya kembangkan untuk menjadi pendidik masa depan.</p></div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden animate-float"><i class="fas fa-rocket absolute -bottom-4 -right-4 text-8xl opacity-20"></i><h3 class="text-2xl font-bold mb-6"><i class="fas fa-bullseye mr-3"></i> Misi Utama</h3><ul class="space-y-4 relative z-10 text-sm md:text-base"><li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-indigo-200"></i> Memfasilitasi pembelajaran yang berpusat pada peserta didik (Student-Centered Learning).</li><li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-indigo-200"></i> Mengintegrasikan teknologi secara bermakna untuk meningkatkan kualitas pemahaman.</li><li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3 text-indigo-200"></i> Menumbuhkan Profil Pelajar Pancasila dalam setiap interaksi dan materi ajar.</li></ul></div>
+                    <div class="bg-gradient-to-br from-teal-400 to-emerald-500 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden animate-float-delayed"><i class="fas fa-cogs absolute -bottom-4 -right-4 text-8xl opacity-20"></i><h3 class="text-2xl font-bold mb-6"><i class="fas fa-layer-group mr-3"></i> Kompetensi</h3><div class="space-y-4 relative z-10 text-sm md:text-base"><div><div class="flex justify-between mb-1"><span class="font-semibold">Pedagogik</span><span>85%</span></div><div class="w-full bg-white/30 rounded-full h-2"><div class="bg-white h-2 rounded-full" style="width: 85%"></div></div></div><div><div class="flex justify-between mb-1"><span class="font-semibold">Profesional</span><span>90%</span></div><div class="w-full bg-white/30 rounded-full h-2"><div class="bg-white h-2 rounded-full" style="width: 90%"></div></div></div><div><div class="flex justify-between mb-1"><span class="font-semibold">Sosial & Kepribadian</span><span>95%</span></div><div class="w-full bg-white/30 rounded-full h-2"><div class="bg-white h-2 rounded-full" style="width: 95%"></div></div></div></div></div>
+                    <div class="bg-gradient-to-br from-pink-500 to-rose-500 rounded-3xl p-8 text-white shadow-xl relative overflow-hidden animate-float"><i class="fas fa-heart absolute -bottom-4 -right-4 text-8xl opacity-20"></i><h3 class="text-2xl font-bold mb-6"><i class="fas fa-smile-beam mr-3"></i> Karakter Ideal</h3><div class="flex flex-wrap gap-2 relative z-10"><span class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/30">Empati Tinggi</span><span class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/30">Adaptif</span><span class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/30">Pembelajar Sepanjang Hayat</span><span class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/30">Inovatif</span><span class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/30">Inklusif</span><span class="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold border border-white/30">Berintegritas</span></div></div>
+                </div>
+        </section>
+
+        <!-- HALAMAN DOKUMENTASI -->
+        <section id="dokumentasi" class="page-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-8 border-b border-gray-200 dark:border-gray-700 mb-8"><h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Galeri Dokumentasi PPL</h2><p class="mt-2 text-gray-600 dark:text-gray-400">Momen-momen berharga selama kegiatan observasi, asistensi, dan praktik mengajar.</p></div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="galeri-grid"></div>
+        </section>
+
+        <!-- HALAMAN REFLEKSI -->
+        <section id="refleksi" class="page-section max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-12"><div class="text-center mb-10"><span class="bg-brand-100 dark:bg-brand-900 text-brand-600 dark:text-brand-300 px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase">E-Portofolio 2</span><h2 class="text-3xl md:text-4xl font-bold mt-4 mb-2">Refleksi Akhir PPL Terbimbing</h2><div class="w-24 h-1 bg-brand-500 mx-auto rounded-full"></div></div>
+                <div class="space-y-8">
+                    <div class="glass p-8 rounded-2xl shadow-md border-l-8 border-brand-500 relative animate-float"><div class="absolute top-4 left-4 text-brand-100 dark:text-gray-700/50 text-6xl font-black z-0">Q1</div><div class="relative z-10"><h3 class="text-xl font-bold mb-4">Apa yang telah dipelajari selama tahapan PPL Terbimbing?</h3><p class="text-gray-700 dark:text-gray-300">...</p></div></div>
+                    <div class="glass p-8 rounded-2xl shadow-md border-l-8 border-accent-pink relative animate-float-delayed"><div class="absolute top-4 left-4 text-pink-50 dark:text-gray-700/50 text-6xl font-black z-0">Q2</div><div class="relative z-10"><h3 class="text-xl font-bold mb-4">Apakah terdapat pengalaman menantang dan bagaimana solusinya?</h3><p class="text-gray-700 dark:text-gray-300">...</p></div></div>
+                    <div class="glass p-8 rounded-2xl shadow-md border-l-8 border-accent-teal relative animate-float"><div class="absolute top-4 left-4 text-teal-50 dark:text-gray-700/50 text-6xl font-black z-0">Q3</div><div class="relative z-10"><h3 class="text-xl font-bold mb-4">Umpan balik konstruktif untuk perbaikan ke tahap PPL Mandiri?</h3><p class="text-gray-700 dark:text-gray-300">...</p></div></div>
+                </div>
+        </section>
+
+        <!-- HALAMAN FILOSOFI -->
+        <section id="filosofi" class="page-section max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="py-12"><div class="text-center mb-10"><i class="fas fa-leaf text-5xl text-accent-teal mb-4 animate-float"></i><h2 class="text-3xl md:text-4xl font-bold mb-2">Filosofi Mengajar</h2><p class="text-gray-500 italic">Ideologi yang mendasari langkah saya di ruang kelas.</p></div>
+                <div class="bg-white dark:bg-gray-800 p-8 md:p-12 rounded-3xl shadow-xl relative prose prose-lg dark:prose-invert max-w-none"><p class="mb-6 text-justify text-gray-700 dark:text-gray-300 leading-loose"><span class="float-left text-6xl font-bold text-brand-500 mr-2 -mt-2">P</span>endidikan bagi saya bukan sekadar mentransfer pengetahun ke dalam bejana kosong, melainkan sebuah proses menyalakan api keingintahuan...</p><p class="mb-6 text-justify text-gray-700 dark:text-gray-300 leading-loose">Keyakinan saya sejalan dengan pemikiran luhur Ki Hajar Dewantara mengenai sistem "Among"...</p><p class="text-justify text-gray-700 dark:text-gray-300 leading-loose">Nilai-nilai empati, inklusivitas, dan growth mindset menjadi fondasi...</p></div>
+        </section>
+    </main>
+
+    <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 pt-12 pb-8 mt-12 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
+                <div class="md:w-1/2 text-center md:text-left"><h3 class="text-2xl font-bold mb-4 text-brand-600 dark:text-brand-400">Hubungi Saya</h3><p class="text-gray-600 dark:text-gray-400 mb-6">Mari berkolaborasi dan berdiskusi seputar dunia pendidikan.</p><div class="flex flex-col space-y-4 items-center md:items-start"><a href="https://wa.me/6281522586307" target="_blank" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-green-500 transition"><div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mr-3"><i class="fab fa-whatsapp text-xl"></i></div><span>+62 815-2258-6307</span></a><a href="mailto:muhammad5614dppk.2025@student.uny.ac.id" target="_blank" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-red-500 transition"><div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mr-3"><i class="far fa-envelope text-xl"></i></div><span>muhammad5614dppk.2025@student.uny.ac.id</span></a><a href="https://www.instagram.com/ridhosan1?igsh=dTZyeDN5azAxbXho" target="_blank" class="flex items-center text-gray-700 dark:text-gray-300 hover:text-pink-500 transition"><div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center mr-3"><i class="fab fa-instagram text-xl"></i></div><span>@ridhosan1</span></a></div></div>
+                <div class="w-full md:w-1/2 h-64 rounded-2xl overflow-hidden shadow-lg border-4 border-white dark:border-gray-800"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.07305744099858!2d110.38559075469543!3d-7.771905589501142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a59b689ec4a55%3A0x186fa4aeaaa8d838!2sKosan%20Putera%20Karangmalang%20C20!5e0!3m2!1sen!2sid!4v1780758179196!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">&copy; <span id="year"></span> E-Portofolio PPG Prajabatan. Didesain dengan penuh semangat.</div>
+        </div>
+    </footer>
+
+    <!-- ========== MODAL JEPARA ========== -->
+    <div id="jepara-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300" onclick="if(event.target === this) closeModal('jepara-modal')">
+        <div class="bg-white dark:bg-gray-800 w-11/12 md:w-2/3 lg:w-1/2 rounded-2xl shadow-2xl transform scale-95 transition-transform duration-300 overflow-hidden" id="jepara-modal-content" onclick="event.stopPropagation()">
+            <div class="relative h-48" id="modal-header-bg">
+                <button onclick="closeModal('jepara-modal')" class="absolute top-4 right-4 w-8 h-8 bg-black/50 hover:bg-red-500 rounded-full text-white flex items-center justify-center transition-colors z-10" title="Tutup"><i class="fas fa-times"></i></button>
+                <div class="absolute inset-0 flex items-center justify-center"><i id="modal-icon" class="text-6xl text-white drop-shadow-md"></i></div>
+            </div>
+            <div class="p-8"><h3 id="modal-title" class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Judul</h3><p id="modal-desc" class="text-gray-600 dark:text-gray-300 leading-relaxed">Deskripsi</p></div>
+        </div>
+    </div>
+
+    <!-- Modal Dokumen -->
+    <div id="doc-modal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-gray-900/80 backdrop-blur-md opacity-0 transition-opacity duration-300" onclick="if(event.target === this) closeModal('doc-modal')">
+        <div class="bg-white dark:bg-gray-800 w-11/12 md:w-3/4 lg:w-2/3 h-5/6 rounded-2xl shadow-2xl flex flex-col overflow-hidden transform scale-95 transition-transform duration-300" id="doc-modal-content" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"><h3 id="doc-title" class="font-bold text-lg text-brand-600 dark:text-brand-400"><i class="fas fa-file-pdf mr-2"></i> Preview Dokumen</h3><button onclick="closeModal('doc-modal')" class="text-gray-500 hover:text-red-500 text-2xl transition"><i class="fas fa-times"></i></button></div>
+            <div class="flex-1 bg-gray-200 dark:bg-gray-700 flex flex-col items-center justify-center p-8 text-center relative overflow-hidden"><div id="doc-spinner" class="animate-spin text-4xl text-brand-500 mb-4"><i class="fas fa-circle-notch"></i></div><div id="doc-viewer" class="hidden flex-col items-center justify-center w-full h-full max-w-2xl bg-white dark:bg-gray-800 rounded shadow-sm border border-gray-300 dark:border-gray-600 p-8"><i class="fas fa-file-alt text-6xl text-gray-300 dark:text-gray-600 mb-4"></i><h4 class="text-xl font-bold mb-2">Simulasi Preview Dokumen PDF</h4><p class="text-sm text-gray-500 dark:text-gray-400 mb-6" id="doc-filename">nama_file.pdf</p><div class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full mb-2"><div class="h-2 bg-brand-500 rounded-full w-3/4"></div></div><div class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full mb-2"><div class="h-2 bg-brand-500 rounded-full w-full"></div></div><div class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full mb-2"><div class="h-2 bg-brand-500 rounded-full w-5/6"></div></div><p class="text-xs text-gray-400 mt-4 italic">*Di sistem nyata, iframe PDF.js diletakkan di sini.</p></div></div></div>
+    </div>
+
+    <!-- Custom Alert -->
+    <div id="custom-alert" class="fixed top-4 right-4 z-[100] transform transition-all duration-300 translate-x-full opacity-0"><div class="bg-white dark:bg-gray-800 border-l-4 border-brand-500 shadow-xl rounded-r-lg p-4 flex items-center min-w-[300px]"><div class="text-brand-500 mr-3 text-2xl"><i class="fas fa-info-circle"></i></div><div><h4 class="font-bold text-gray-800 dark:text-white text-sm" id="alert-title">Informasi</h4><p class="text-xs text-gray-600 dark:text-gray-400" id="alert-msg">Pesan.</p></div></div></div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // Generate binary rain
+            createBinaryRain();
+
+            const progressFill = document.getElementById('progress-fill');
+            const percentText = document.getElementById('loading-percent');
+            const loader = document.getElementById('loader');
+            let percent = 0;
+            const interval = setInterval(() => {
+                percent += Math.floor(Math.random() * 7) + 1;
+                if (percent >= 100) {
+                    percent = 100;
+                    progressFill.style.width = '100%';
+                    percentText.textContent = '100%';
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        loader.style.opacity = '0';
+                        setTimeout(() => loader.style.display = 'none', 800);
+                    }, 400);
+                } else {
+                    progressFill.style.width = percent + '%';
+                    percentText.textContent = percent + '%';
+                }
+            }, 100);
+            createBubbles();
+            createPhotoParticles();
+            init3DTilt();
+            renderSiklusArtefak();
+            renderPenilaianCards();
+            renderGaleri();
+        });
+
+        /**
+         * Membuat binary rain (0 dan 1) bergerak ke atas di dalam loader
+         */
+        function createBinaryRain() {
+            const container = document.getElementById('binary-rain');
+            if (!container) return;
+            const digitCount = 55;
+            const tealColor = '#14b8a6';
+            const indigoColor = '#818cf8';
+
+            for (let i = 0; i < digitCount; i++) {
+                const span = document.createElement('span');
+                span.classList.add('binary-digit');
+                // Acak 0 atau 1
+                span.textContent = Math.random() > 0.5 ? '1' : '0';
+
+                // Posisi horizontal acak
+                const leftPos = Math.random() * 100;
+                span.style.left = leftPos + '%';
+
+                // Posisi vertikal awal acak (0% sampai 100% dari viewport)
+                const topStart = Math.random() * 100;
+                span.style.top = topStart + '%';
+
+                // Durasi animasi acak (8s - 22s)
+                const duration = 8 + Math.random() * 14;
+                // Delay acak (0s - 12s)
+                const delay = Math.random() * 12;
+                span.style.animation = `binaryRise ${duration}s linear ${delay}s infinite`;
+
+                // Opacity acak
+                const opacity = 0.18 + Math.random() * 0.4;
+                span.style.setProperty('--b-opacity', opacity);
+
+                // Ukuran font acak
+                const fontSize = 13 + Math.random() * 16;
+                span.style.fontSize = fontSize + 'px';
+
+                // Warna: 65% teal, 35% indigo
+                const color = Math.random() > 0.35 ? tealColor : indigoColor;
+                span.style.color = color;
+                // Text shadow glow
+                span.style.textShadow = `0 0 ${6 + Math.random() * 10}px ${color}`;
+
+                container.appendChild(span);
+            }
+        }
+
+        function createBubbles() {
+            const container = document.getElementById('bubbles-container');
+            for (let i = 0; i < 15; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                const size = Math.random() * 80 + 20;
+                bubble.style.width = size + 'px';
+                bubble.style.height = size + 'px';
+                bubble.style.left = Math.random() * 100 + '%';
+                bubble.style.animationDuration = Math.random() * 15 + 10 + 's';
+                bubble.style.animationDelay = Math.random() * 10 + 's';
+                container.appendChild(bubble);
+            }
+        }
+
+        function createPhotoParticles() {
+            const container = document.getElementById('photo-particles-container');
+            if (!container) return;
+            const numBalls = 35;
+            for (let i = 0; i < numBalls; i++) {
+                const ball = document.createElement('div');
+                ball.classList.add('photo-particle');
+                if (Math.random() > 0.5) ball.classList.add('white');
+                else ball.classList.add('black');
+                const size = Math.random() * 18 + 6;
+                ball.style.width = `${size}px`;
+                ball.style.height = `${size}px`;
+                ball.style.left = `${Math.random() * 90}%`;
+                ball.style.top = `${Math.random() * 90}%`;
+                ball.style.setProperty('--dx1', `${(Math.random() - 0.5) * 200}px`);
+                ball.style.setProperty('--dy1', `${(Math.random() - 0.5) * 200}px`);
+                ball.style.setProperty('--dx2', `${(Math.random() - 0.5) * 200}px`);
+                ball.style.setProperty('--dy2', `${(Math.random() - 0.5) * 200}px`);
+                const duration = Math.random() * 14 + 9;
+                const delay = Math.random() * -18;
+                ball.style.animation = `floatParticle ${duration}s ease-in-out ${delay}s infinite alternate`;
+                container.appendChild(ball);
+            }
+        }
+
+        function init3DTilt() {
+            const card = document.getElementById('photo-card');
+            if (!card) return;
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -10;
+                const rotateY = ((x - centerX) / centerX) * 10;
+                card.style.transform =
+                    `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+                card.style.transition = 'transform 0.7s cubic-bezier(0.23, 1, 0.32, 1)';
+            });
+            card.addEventListener('mouseenter', () => {
+                card.style.transition = 'none';
+            });
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlDoc = document.documentElement;
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            htmlDoc.classList.add('dark');
+        } else {
+            htmlDoc.classList.remove('dark');
+        }
+        themeToggleBtn.addEventListener('click', () => {
+            htmlDoc.classList.toggle('dark');
+            localStorage.theme = htmlDoc.classList.contains('dark') ? 'dark' : 'light';
+        });
+
+        function switchPage(pageId) {
+            const oldSection = document.querySelector('.page-section.active');
+            if (oldSection && oldSection.id !== pageId) {
+                oldSection.classList.add('fade-out');
+                const onEnd = () => {
+                    oldSection.removeEventListener('animationend', onEnd);
+                    oldSection.classList.remove('active', 'fade-out');
+                    document.getElementById(pageId).classList.add('active');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                };
+                oldSection.addEventListener('animationend', onEnd);
+            } else if (!oldSection) {
+                document.getElementById(pageId).classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+
+        const jeparaData = {
+            'modal-ukiran': {
+                title: 'Jepara Kota Ukir',
+                bg: 'bg-gradient-to-br from-yellow-700 to-yellow-900',
+                img: 'https://imgcdn.espos.id/@espos/images/2022/04/jepara-.jpg?quality=60',
+                desc: 'Jepara merupakan salah satu kabupaten di pesisir utara Jawa Tengah yang dikenal luas sebagai Kota Ukir. Julukan ini tidak diberikan tanpa alasan, karena Jepara memiliki tradisi seni ukir kayu yang telah berkembang selama ratusan tahun dan diwariskan secara turun-temurun dari generasi ke generasi. Keindahan, ketelitian, dan nilai seni yang tinggi menjadikan ukiran Jepara sebagai salah satu karya budaya Indonesia yang terkenal hingga mancanegara. Perkembangan seni ukir di Jepara tidak terlepas dari peran Ratu Kalinyamat yang mendorong kemajuan seni dan budaya di wilayah tersebut.'
+            },
+            'modal-kartini': {
+                title: 'Bumi Kelahiran R.A. Kartini',
+                bg: 'bg-gradient-to-br from-pink-500 to-red-500',
+                img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAePRq-06VbxTN6AlSf7cUy2qfuNYmEUcr5Y4b79BWZA&s=10',
+                desc: 'Raden Ajeng Kartini merupakan salah satu tokoh penting dalam sejarah Indonesia yang dikenal sebagai pelopor emansipasi perempuan. Lahir di Jepara pada 21 April 1879, Kartini memiliki pemikiran yang maju mengenai pentingnya pendidikan dan kesetaraan hak bagi perempuan. Melalui surat-surat yang ditulisnya kepada sahabat-sahabatnya di Eropa, Kartini mengungkapkan gagasan tentang kebebasan berpikir, kesempatan belajar, dan peran perempuan dalam membangun masyarakat yang lebih maju.'
+            },
+            'modal-pantai': {
+                title: 'Pesona Bahari Karimunjawa',
+                bg: 'bg-gradient-to-br from-cyan-500 to-blue-600',
+                img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfnZ9q1_bvtSsjVlDRQkXGMI62KoUg5LJtrL-K8r0PLQ&s=10',
+                desc: 'Karimunjawa merupakan gugusan kepulauan yang terletak di Laut Jawa dan menjadi salah satu destinasi wisata bahari unggulan di Indonesia. Kawasan ini terkenal dengan keindahan pantai berpasir putih, air laut yang jernih, serta kekayaan ekosistem bawah laut yang meliputi terumbu karang, berbagai jenis ikan hias, dan biota laut lainnya. Selain menawarkan aktivitas wisata seperti snorkeling, diving, dan island hopping, Karimunjawa juga memiliki pesona budaya dan kehidupan masyarakat pesisir yang ramah. Keindahan alamnya yang masih terjaga menjadikan Karimunjawa sebagai tujuan wisata favorit bagi wisatawan domestik maupun mancanegara yang ingin menikmati keindahan tropis Indonesia.'
+            }
+        };
+
+        function openModal(type) {
+            const modal = document.getElementById('jepara-modal');
+            const content = document.getElementById('jepara-modal-content');
+            const data = jeparaData[type];
+            if (!modal || !content || !data) return;
+
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-desc').innerText = data.desc;
+            document.getElementById('modal-icon').className = `${data.icon} text-6xl text-white drop-shadow-md`;
+
+            // Set gambar sebagai background header dengan overlay
+            const headerBg = document.getElementById('modal-header-bg');
+            headerBg.className = 'relative h-48';
+            headerBg.style.background =
+                `linear-gradient(to bottom right, rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('${data.img}') center/cover no-repeat`;
+
+            modal.classList.remove('hidden');
+            modal.style.display = 'flex';
+            modal.offsetHeight;
+            modal.classList.remove('opacity-0');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+
+            const content = id === 'jepara-modal' ? document.getElementById('jepara-modal-content') : document
+                .getElementById('doc-modal-content');
+
+            modal.classList.add('opacity-0');
+            if (content) {
+                content.classList.remove('scale-100');
+                content.classList.add('scale-95');
+            }
+
+            setTimeout(() => {
+                modal.style.display = 'none';
+                modal.classList.add('hidden');
+                if (id === 'doc-modal') {
+                    const spinner = document.getElementById('doc-spinner');
+                    const viewer = document.getElementById('doc-viewer');
+                    if (spinner) spinner.classList.remove('hidden');
+                    if (viewer) {
+                        viewer.classList.add('hidden');
+                        viewer.classList.remove('flex');
+                    }
+                }
+            }, 300);
+        }
+
+        function previewDoc(title) {
+            const modal = document.getElementById('doc-modal');
+            const content = document.getElementById('doc-modal-content');
+            if (!modal || !content) return;
+
+            document.getElementById('doc-title').innerHTML = `<i class="fas fa-file-pdf mr-2"></i> ${title}`;
+            document.getElementById('doc-filename').innerText = title + ".pdf";
+
+            modal.classList.remove('hidden');
+            modal.style.display = 'flex';
+            modal.offsetHeight;
+            modal.classList.remove('opacity-0');
+            content.classList.remove('scale-95');
+            content.classList.add('scale-100');
+
+            setTimeout(() => {
+                const spinner = document.getElementById('doc-spinner');
+                const viewer = document.getElementById('doc-viewer');
+                if (spinner) spinner.classList.add('hidden');
+                if (viewer) {
+                    viewer.classList.remove('hidden');
+                    viewer.classList.add('flex');
+                }
+            }, 1500);
+        }
+
+        function openVideoModal() { showCustomAlert('Pemutar Video',
+            'Simulasi memutar video: Pelaksanaan Pembelajaran Model PjBL.'); }
+
+        function previewImage(url, title) { showCustomAlert('Preview Gambar', `Membuka pratinjau untuk: ${title}`); }
+
+        function downloadMock(filename) { showCustomAlert('Mengunduh Berkas', `Memulai unduhan: ${filename}...`); }
+
+        function showCustomAlert(title, message) {
+            const alertBox = document.getElementById('custom-alert');
+            document.getElementById('alert-title').innerText = title;
+            document.getElementById('alert-msg').innerText = message;
+            alertBox.classList.remove('translate-x-full', 'opacity-0');
+            setTimeout(() => alertBox.classList.add('translate-x-full', 'opacity-0'), 3000);
+        }
+
+        function renderSiklusArtefak() {
+            const container = document.getElementById('artefak-siklus');
+            if (!container) return;
+            const siklus = [
+                { num: 1, title: 'Siklus Pembelajaran 1', color: 'bg-brand-500' },
+                { num: 2, title: 'Siklus Pembelajaran 2', color: 'bg-accent-pink' },
+                { num: 3, title: 'Siklus Pembelajaran 3', color: 'bg-accent-teal' }
+            ];
+            container.innerHTML = siklus.map(s => `
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    <div class="${s.color} px-6 py-4"><h3 class="text-xl font-bold text-white flex items-center"><i class="fas fa-sync-alt mr-2"></i> ${s.title}</h3></div>
+                    <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="glass p-4 rounded-xl border-l-4 border-brand-500"><div class="flex items-center mb-3 text-brand-600 dark:text-brand-400"><i class="fas fa-file-pdf text-2xl mr-3"></i><h4 class="font-semibold">Modul Ajar / RPP 1</h4></div><p class="text-xs text-gray-500 mb-4">Format PDF, Ukuran: 2MB</p><div class="flex space-x-2"><button onclick="previewDoc('Modul Ajar Siklus ${s.num} - Bagian 1')" class="flex-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-sm py-2 rounded-lg transition"><i class="fas fa-eye mr-1"></i> Preview</button><button onclick="downloadMock('RPP_1_Siklus_${s.num}.pdf')" class="flex-1 bg-brand-500 hover:bg-brand-600 text-white text-sm py-2 rounded-lg transition"><i class="fas fa-download mr-1"></i> Unduh</button></div></div>
+                        <div class="glass p-4 rounded-xl border-l-4 border-accent-pink"><div class="flex items-center mb-3 text-accent-pink"><i class="fas fa-file-pdf text-2xl mr-3"></i><h4 class="font-semibold">Modul Ajar / RPP 2</h4></div><p class="text-xs text-gray-500 mb-4">Format PDF, Ukuran: 2.5MB</p><div class="flex space-x-2"><button onclick="previewDoc('Modul Ajar Siklus ${s.num} - Bagian 2')" class="flex-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-sm py-2 rounded-lg transition"><i class="fas fa-eye mr-1"></i> Preview</button><button onclick="downloadMock('RPP_2_Siklus_${s.num}.pdf')" class="flex-1 bg-accent-pink hover:bg-pink-600 text-white text-sm py-2 rounded-lg transition"><i class="fas fa-download mr-1"></i> Unduh</button></div></div>
+                        <div class="glass p-4 rounded-xl border-l-4 border-accent-teal"><div class="flex items-center mb-3 text-accent-teal"><i class="fas fa-images text-2xl mr-3"></i><h4 class="font-semibold">Hasil Kerja Murid</h4></div><p class="text-xs text-gray-500 mb-4">Format PDF (Scan), Ukuran: 5MB</p><div class="flex space-x-2"><button onclick="previewDoc('Hasil Karya Siswa Siklus ${s.num}')" class="flex-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-sm py-2 rounded-lg transition"><i class="fas fa-eye mr-1"></i> Preview</button><button onclick="downloadMock('Hasil_Siswa_Siklus_${s.num}.pdf')" class="flex-1 bg-accent-teal hover:bg-teal-600 text-white text-sm py-2 rounded-lg transition"><i class="fas fa-download mr-1"></i> Unduh</button></div></div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderPenilaianCards() {
+            const container = document.getElementById('penilaian-cards');
+            if (!container) return;
+            container.innerHTML = [1, 2, 3].map(n => `
+                <div class="glass rounded-2xl p-6 text-center shadow-lg hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-brand-500 rounded-bl-full -mr-12 -mt-12 opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                    <i class="fas fa-clipboard-check text-5xl text-brand-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-xl font-bold mb-2">Penilaian Siklus ${n}</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Lembar observasi dan rubrik penilaian kompetensi guru model.</p>
+                    <div class="flex flex-col space-y-2">
+                        <button onclick="previewDoc('Lembar Penilaian Guru Pamong Siklus ${n}')" class="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 py-2 rounded-lg text-sm font-semibold transition shadow-sm"><i class="fas fa-eye mr-2 text-brand-500"></i>Preview</button>
+                        <button onclick="downloadMock('Penilaian_GP_Siklus_${n}.pdf')" class="w-full bg-brand-500 hover:bg-brand-600 text-white py-2 rounded-lg text-sm font-semibold transition shadow-md"><i class="fas fa-download mr-2"></i>Unduh PDF</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderGaleri() {
+            const grid = document.getElementById('galeri-grid');
+            if (!grid) return;
+            const docs = ['Kegiatan Kelas', 'Diskusi Kelompok', 'Presentasi Siswa', 'Bimbingan Guru Pamong', 'Ice Breaking',
+                'Evaluasi Pembelajaran', 'Pameran Karya', 'Foto Bersama'
+            ];
+            grid.innerHTML = docs.map((desc, i) => {
+                const color = ['4f46e5', 'ec4899', '14b8a6', 'f59e0b'][i % 4];
+                return `<div class="relative group rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all aspect-video"><img src="https://placehold.co/600x400/${color}/ffffff?text=Dokumentasi+${i+1}" alt="${desc}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4"><h4 class="text-white font-semibold text-sm mb-2 translate-y-4 group-hover:translate-y-0 transition-transform">${desc}</h4><div class="flex space-x-2 translate-y-4 group-hover:translate-y-0 transition-transform delay-75"><button onclick="previewImage('https://placehold.co/600x400/${color}/ffffff?text=Dokumentasi+${i+1}','${desc}')" class="p-2 bg-white/20 hover:bg-white/40 rounded-full text-white backdrop-blur-sm"><i class="fas fa-search-plus"></i></button><button onclick="downloadMock('Foto_${i+1}.jpg')" class="p-2 bg-white/20 hover:bg-white/40 rounded-full text-white backdrop-blur-sm"><i class="fas fa-download"></i></button></div></div></div>`;
+            }).join('');
+        }
+    </script>
+</body>
+</html>
