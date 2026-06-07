@@ -808,7 +808,7 @@
             <div class="mt-12 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
                 <div class="bg-gray-800 dark:bg-gray-900 px-6 py-4"><h3 class="text-xl font-bold text-white flex items-center"><i class="fas fa-video mr-2 text-red-500"></i> Video Praktik Pembelajaran</h3></div>
                 <div class="p-6 flex flex-col lg:flex-row gap-6 items-center">
-                    <div class="w-full lg:w-1/2"><div class="relative pt-[56.25%] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-inner group"><img src="https://placehold.co/800x450/374151/ffffff?text=Thumbnail+Video" alt="Thumbnail" class="absolute top-0 left-0 w-full h-full object-cover"><button onclick="openVideoModal()" class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition-colors"><i class="fas fa-play-circle text-6xl text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all"></i></button></div></div>
+                    <div class="w-full lg:w-1/2"><div class="relative pt-[56.25%] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-inner group"><img src="https://placehold.co/800x450/374151/ffffff?text=Thumbnail+Video" alt="Thumbnail" class="absolute top-0 left-0 w-full h-full object-cover"><button onclick="playVideo('1roZ-zz3schyYgQM71PV5cyjx23dULzkb')" class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition-colors"><i class="fas fa-play-circle text-6xl text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all"></i></button></div></div>
                     <div class="w-full lg:w-1/2 space-y-4"><h4 class="text-2xl font-bold text-gray-800 dark:text-white">Pelaksanaan Pembelajaran Model PBL</h4><p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Video ini merupakan dokumentasi pelaksanaan praktik mengajar menggunakan model Prolem Based Learning.</p><div class="flex gap-3"><span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs font-semibold"><i class="far fa-clock mr-1"></i> 4 x 45 Menit</span><span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs font-semibold"><i class="fas fa-map-marker-alt mr-1"></i> Kelas X Kayu A</span></div></div>
                 </div>
             </div>
@@ -1043,19 +1043,19 @@
                 title: 'Jepara Kota Ukir',
                 bg: 'bg-gradient-to-br from-yellow-700 to-yellow-900',
                 img: 'https://imgcdn.espos.id/@espos/images/2022/04/jepara-.jpg?quality=60',
-                desc: 'Jepara merupakan salah satu kabupaten di pesisir utara Jawa Tengah yang dikenal luas sebagai Kota Ukir...'
+                desc: 'Jepara dikenal luas sebagai Kota Ukir, sebuah reputasi yang telah melekat selama berabad-abad dan menjadi denyut nadi kehidupan ekonomi serta budayanya. Di kota di pesisir utara Jawa Tengah ini, suara pahat yang menari di atas kayu jati, mahoni, dan sonokeling terdengar bagaikan irama keseharian, mengubah balok-balok kayu menjadi mahakarya seni yang memukau. Dari ukiran halus yang menghiasi furniture mewah, relief dinding yang bercerita tentang kehidupan, hingga replika kapal dan wayang kulit dari kayu, setiap goresan mencerminkan ketekunan dan jiwa seni yang diwariskan secara turun-temurun. Sentuhan estetis para perajinnya tidak hanya memenuhi pasar domestik, tetapi juga telah menembus mancanegara, menjadikan nama Jepara sebagai ikon kerajinan ukir dunia yang tak lekang oleh waktu.'
             },
             'modal-kartini': {
                 title: 'Bumi Kelahiran R.A. Kartini',
                 bg: 'bg-gradient-to-br from-pink-500 to-red-500',
                 img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAePRq-06VbxTN6AlSf7cUy2qfuNYmEUcr5Y4b79BWZA&s=10',
-                desc: 'Raden Ajeng Kartini merupakan salah satu tokoh penting...'
+                desc: 'Di balik kemegahan ukiran Jepara, tersimpan kisah heroik seorang putri bangsawan bernama Raden Ajeng Kartini, yang semangatnya menyalakan api emansipasi bagi kaum perempuan Indonesia. Lahir di tengah lingkungan priyayi yang kental dengan tradisi feodal, Kartini muda merasakan sendiri pahitnya pengekangan ruang gerak perempuan, terutama praktik pingitan yang memisahkannya dari dunia pendidikan dan pengetahuan. Namun, semangatnya tak pernah padam; melalui surat-surat yang ditulisnya kepada sahabat-sahabat di Eropa, ia menuangkan gagasan-gagasan cemerlang tentang perlunya kesetaraan, pendidikan bagi perempuan, dan hak untuk menentukan nasib sendiri. Pemikirannya yang kemudian dibukukan dalam "Habis Gelap Terbitlah Terang" menjadi fondasi pergerakan perempuan Indonesia, menginspirasi berdirinya sekolah-sekolah Kartini yang pertama, dan mengukuhkan namanya sebagai Pahlawan Nasional yang memperjuangkan cahaya ilmu dari balik jendela pengap masa lalu.'
             },
             'modal-pantai': {
                 title: 'Pesona Bahari Karimunjawa',
                 bg: 'bg-gradient-to-br from-cyan-500 to-blue-600',
                 img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfnZ9q1_bvtSsjVlDRQkXGMI62KoUg5LJtrL-K8r0PLQ&s=10',
-                desc: 'Karimunjawa merupakan gugusan kepulauan...'
+                desc: 'Lepas dari hiruk-pikuk kota dan pahat ukiran, wilayah utara Jepara menyimpan surga tropis bernama Kepulauan Karimunjawa, sebuah gugusan 27 pulau kecil yang menawarkan keindahan bawah laut dan ketenangan yang nyaris sempurna. Dengan perjalanan beberapa jam menggunakan kapal cepat dari daratan Jepara, suasana berubah drastis menjadi hamparan pasir putih yang lembut, air laut sebening kristal dengan gradasi biru toska hingga hijau zamrud, serta hutan mangrove yang rimbun. Di perairannya, taman nasional ini adalah rumah bagi terumbu karang yang masih terjaga, berbagai spesies ikan hias, hingga penyu sisik yang sering ditemui para penyelam dan snorkeler. Keindahan Karimunjawa bukan hanya pada pesona alamnya yang eksotis, tetapi juga pada kedamaian hidup masyarakatnya yang ramah, menjadikannya pelarian sempurna dari rutinitas untuk menyelami kemurnian alam yang menyejukkan jiwa.'
             }
         };
 
@@ -1105,46 +1105,57 @@
 
         // ========== FUNGSI BARU UNTUK PREVIEW & DOWNLOAD PDF DARI GOOGLE DRIVE ==========
         function previewDoc(linkOrID) {
-            const modal = document.getElementById('doc-modal');
-            const content = document.getElementById('doc-modal-content');
-            const viewer = document.getElementById('doc-viewer');
-            const spinner = document.getElementById('doc-spinner');
-            if (!modal || !content) return;
+    const modal = document.getElementById('doc-modal');
+    const content = document.getElementById('doc-modal-content');
+    const viewer = document.getElementById('doc-viewer');
+    const spinner = document.getElementById('doc-spinner');
+    if (!modal || !content) return;
 
-            let embedUrl;
-            if (linkOrID.startsWith('http')) {
-                embedUrl = linkOrID;
-            } else {
-                embedUrl = `https://drive.google.com/file/d/${linkOrID}/preview`;
-            }
+    // Ambil File ID: jika input berupa URL lengkap, ekstrak ID-nya;
+    // jika sudah berupa ID biasa, gunakan langsung.
+    let fileID;
+    if (linkOrID.startsWith('http')) {
+        // Coba ekstrak dari pola /d/FILE_ID/
+        const match = linkOrID.match(/\/d\/([^\/]+)/);
+        fileID = match ? match[1] : linkOrID; // fallback jika tidak cocok
+    } else {
+        fileID = linkOrID;
+    }
 
-            modal.classList.remove('hidden');
-            modal.style.display = 'flex';
-            modal.offsetHeight;
-            modal.classList.remove('opacity-0');
-            content.classList.remove('scale-95');
-            content.classList.add('scale-100');
+    // Gunakan Google Docs Viewer agar tidak diblokir iframe
+    const embedUrl = `https://docs.google.com/viewer?url=https://drive.google.com/uc?id=${fileID}&embedded=true`;
 
-            viewer.innerHTML = '';
-            viewer.classList.add('hidden');
-            spinner.classList.remove('hidden');
+    // Tampilkan modal
+    modal.classList.remove('hidden');
+    modal.style.display = 'flex';
+    modal.offsetHeight; // reflow
+    modal.classList.remove('opacity-0');
+    content.classList.remove('scale-95');
+    content.classList.add('scale-100');
 
-            const iframe = document.createElement('iframe');
-            iframe.src = embedUrl;
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            iframe.style.border = 'none';
-            iframe.style.borderRadius = '8px';
-            iframe.allow = "autoplay";
-            iframe.onload = () => {
-                spinner.classList.add('hidden');
-                viewer.classList.remove('hidden');
-                viewer.classList.add('flex');
-            };
-            viewer.appendChild(iframe);
+    // Bersihkan viewer & tampilkan spinner
+    viewer.innerHTML = '';
+    viewer.classList.add('hidden');
+    spinner.classList.remove('hidden');
 
-            document.getElementById('doc-title').innerHTML = '<i class="fas fa-file-pdf mr-2"></i> Preview Dokumen';
-        }
+    // Buat iframe
+    const iframe = document.createElement('iframe');
+    iframe.src = embedUrl;
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+    iframe.style.borderRadius = '8px';
+    iframe.allow = "autoplay";
+    iframe.onload = () => {
+        spinner.classList.add('hidden');
+        viewer.classList.remove('hidden');
+        viewer.classList.add('flex');
+    };
+    viewer.appendChild(iframe);
+
+    // Judul modal
+    document.getElementById('doc-title').innerHTML = '<i class="fas fa-file-pdf mr-2"></i> Preview Dokumen';
+}
 
         function downloadPDF(fileID) {
             window.open(`https://drive.google.com/uc?export=download&id=${fileID}`, '_blank');
@@ -1163,61 +1174,170 @@
 
         // ========== RENDER SIKLUS ARTEFAK DENGAN ID GOOGLE DRIVE ==========
         function renderSiklusArtefak() {
-            const container = document.getElementById('artefak-siklus');
-            if (!container) return;
-            const siklus = [
-                {
-                    num: 1,
-                    title: 'Siklus Pembelajaran 1',
-                    color: 'bg-brand-500',
-                    // Ganti placeholder di bawah dengan ID file Google Drive Anda
-                    ids: { rpp1: 'FILE_ID_RPP1_SIKLUS1', rpp2: 'FILE_ID_RPP2_SIKLUS1', hasil: 'FILE_ID_HASIL_SIKLUS1' }
-                },
-                {
-                    num: 2,
-                    title: 'Siklus Pembelajaran 2',
-                    color: 'bg-accent-pink',
-                    ids: { rpp1: 'FILE_ID_RPP1_SIKLUS2', rpp2: 'FILE_ID_RPP2_SIKLUS2', hasil: 'FILE_ID_HASIL_SIKLUS2' }
-                },
-                {
-                    num: 3,
-                    title: 'Siklus Pembelajaran 3',
-                    color: 'bg-accent-teal',
-                    ids: { rpp1: 'FILE_ID_RPP1_SIKLUS3', rpp2: 'FILE_ID_RPP2_SIKLUS3', hasil: 'FILE_ID_HASIL_SIKLUS3' }
-                }
-            ];
-            container.innerHTML = siklus.map(s => `
-                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
-                    <div class="${s.color} px-6 py-4"><h3 class="text-xl font-bold text-white flex items-center"><i class="fas fa-sync-alt mr-2"></i> ${s.title}</h3></div>
-                    <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="glass p-4 rounded-xl border-l-4 border-brand-500">
-                            <div class="flex items-center mb-3 text-brand-600 dark:text-brand-400"><i class="fas fa-file-pdf text-2xl mr-3"></i><h4 class="font-semibold">Modul Ajar / RPP 1</h4></div>
-                            <p class="text-xs text-gray-500 mb-4">Format PDF, Ukuran: 2MB</p>
-                            <div class="flex space-x-2">
-                                <button onclick="previewDoc('${s.ids.rpp1}')" class="flex-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-sm py-2 rounded-lg transition"><i class="fas fa-eye mr-1"></i> Preview</button>
-                                <button onclick="downloadPDF('${s.ids.rpp1}')" class="flex-1 bg-brand-500 hover:bg-brand-600 text-white text-sm py-2 rounded-lg transition"><i class="fas fa-download mr-1"></i> Unduh</button>
+    const container = document.getElementById('artefak-siklus');
+    if (!container) return;
+    const siklus = [
+        {
+            num: 1,
+            title: 'Siklus Pembelajaran 1',
+            color: 'bg-brand-500',
+            ids: { rpp1: '1CZOPhdWPAAsU9TZE5q8glf0MtTYKO1Lv', rpp2: '16rxhO4XT__azb3MQ4dddc7GA145gjNs_', hasil: '1MzLuth6fotvwVw79m2vKypjrb9NvrNm_' },
+            refleksi: {
+                kendala: 'Kendala utama yang saya alami selama proses penyusunan produk pembelajaran adalah karena ini merupakan pengalaman pertama saya membuat Rencana Pelaksanaan Pembelajaran (RPP), sehingga saya masih perlu belajar secara mandiri tentang struktur, komponen, dan sintaks model pembelajaran yang tepat, yang mengakibatkan hasil akhir RPP masih kurang memuaskan dan belum sepenuhnya optimal terutama dalam merancang analogi animasi yang pas serta mengintegrasikan asesmen secara menyeluruh.',
+                pedagogi: 'Teori dan konsep pedagogi yang diadopsi dalam RPP ini meliputi Problem-Based Learning (PBL) untuk pertemuan teori, Project-Based Learning (PjBL) untuk pertemuan praktik, pendekatan kontekstual dengan mengaitkan materi HTML/CSS ke dunia animasi (analogi storyboard, cel, multiplane camera, CGI), pembelajaran berdiferensiasi melalui program pengayaan dan remedial, serta asesmen diagnostik, formatif, dan sumatif yang didukung oleh pemanfaatan teknologi digital (TPACK) dan pengembangan dimensi profil lulusan yaitu penalaran kritis dan kemandirian.',
+                keberhasilan: 'Faktor-faktor yang dapat menentukan keberhasilan penerapan produk pembelajaran ini antara lain: relevansi materi yang kuat dengan jurusan animasi sehingga siswa mudah memahami melalui analogi yang dekat dengan keseharian mereka, penggunaan model PBL dan PjBL yang terstruktur dengan LKPD lengkap (teori dan praktik) serta rubrik penilaian yang jelas, ketersediaan lingkungan belajar yang mendukung (lab komputer, proyektor, akses internet, budaya belajar mandiri dan kritis), serta integrasi asesmen berkelanjutan (pretest, observasi afektif, penilaian psikomotor, dan kognitif) yang memungkinkan guru memantau perkembangan siswa secara utuh.',
+                perubahan: 'Untuk menyesuaikan RPP dengan situasi kelas yang berbeda (misalnya kemampuan siswa heterogen, keterbatasan perangkat, atau alokasi waktu yang berubah), beberapa komponen yang dapat dimodifikasi adalah: model pembelajaran dapat diganti menjadi direct instruction atau peer tutoring jika waktu terbatas, media digital dapat dialihkan dari komputer ke smartphone dengan editor HTML atau demonstrasi papan tulis, LKPD dapat disederhanakan (mengubah uraian menjadi isian singkat atau pilihan ganda) atau diperkaya dengan tantangan responsif, asesmen dapat menggunakan rubrik lebih sederhana, serta aktivitas praktik dapat dikerjakan secara berkelompok kecil dan gambar placeholder diganti dengan gambar lokal jika koneksi internet bermasalah.'
+            }
+        },
+        {
+            num: 2,
+            title: 'Siklus Pembelajaran 2',
+            color: 'bg-accent-pink',
+            ids: { rpp1: '1yPRDyD9GsojPDeh0hzPoCHUlK1ibF8Rm', rpp2: '1zqp17J7oKkk5yoWUJYQbsJ6YLL0C2tGQ', hasil: '1wfWlIlIRZK32Fu2m3w2PXQYf4VZVLk9m' },
+            refleksi: {
+                kendala: 'Kendala utama yang saya alami selama menyusun produk pembelajaran ini adalah keterbatasan pengalaman dalam merancang RPP berbasis PBL dan PjBL yang terintegrasi dengan mata pelajaran logam, sehingga sulit menciptakan analogi kontekstual yang tepat antara CSS dan dunia logam (misalnya menyamakan selektor dengan jenis logam atau properti CSS dengan teknik finishing), serta menyesuaikan tingkat kesulitan soal dan rubrik penilaian agar sesuai dengan karakteristik peserta didik jurusan logam yang mungkin memiliki latar belakang teknologi informasi yang minim.',
+                pedagogi: 'Teori dan konsep pedagogi yang diadopsi dalam RPP ini meliputi Problem-Based Learning (PBL) pada pertemuan teori dengan studi kasus membuat halaman profil diri yang menarik menggunakan CSS, Project-Based Learning (PjBL) pada pertemuan praktik dengan proyek menghubungkan file CSS eksternal ke HTML, pendekatan kontekstual yang mengaitkan CSS dengan kebutuhan peserta didik dalam menampilkan informasi digital secara profesional, serta asesmen diagnostik, formatif, dan sumatif yang dilengkapi dengan rubrik penilaian terperinci untuk mengukur ketercapaian kompetensi.',
+                keberhasilan: 'Faktor-faktor yang dapat menentukan keberhasilan penerapan produk pembelajaran ini antara lain: ketersediaan laboratorium komputer dengan perangkat dan browser yang memadai, tingkat kemandirian dan berpikir kritis peserta didik yang sudah terbangun dari pertemuan sebelumnya, penggunaan media pembelajaran interaktif berbasis Canva AI dan kuis online, adanya LKPD yang terstruktur dengan panduan langkah demi langkah (termasuk pembuatan file style.css dan penghubungan dengan HTML), serta rubrik penilaian yang jelas dan objektif sehingga peserta didik memahami target capaian dan guru dapat memberikan umpan balik secara tepat.',
+                perubahan: 'Untuk menyesuaikan dengan situasi kelas yang berbeda (misalnya keterbatasan perangkat komputer, alokasi waktu lebih singkat, atau peserta didik dengan kemampuan sangat heterogen), beberapa komponen yang dapat diubah adalah: mengubah model PjBL menjadi demonstrasi langsung oleh guru jika waktu hanya 2 JP, mengganti file CSS eksternal dengan CSS internal untuk menyederhanakan proses tanpa perlu mengelola dua file, menyederhanakan tuntutan kreativitas dari 4 aspek (warna, font, animasi, tombol) menjadi hanya 2 aspek, serta mengganti asesmen praktik dengan tes tertulis atau kuis lisan jika lab komputer tidak tersedia.'
+            }
+        },
+        {
+            num: 3,
+            title: 'Siklus Pembelajaran 3',
+            color: 'bg-accent-teal',
+            ids: { rpp1: '17ZZCEKwaA6vgSkdVCXJVnW0-JstGoTXd', rpp2: '1wHVSqn4-7GNnaw8x9QlJkf4dBHE33P8n', hasil: '18EP_jYF0zCcqz-Ace5jIfh9oVmcEgAE8' },
+            refleksi: {
+                kendala: 'Kendala utama dalam penyusunan produk pembelajaran ini adalah menyesuaikan materi keamanan digital (scam, password, Google Authenticator) dengan karakteristik jurusan kayu, karena secara alami tidak ada keterkaitan langsung antara topik keamanan siber dengan dunia perkayuan, sehingga sulit menciptakan analogi kontekstual yang bermakna bagi peserta didik jurusan kayu yang mungkin lebih terbiasa dengan praktik teknis bengkel kayu dibandingkan dengan risiko digital.',
+                pedagogi: 'Teori dan konsep pedagogi yang diadopsi dalam RPP ini meliputi Problem-Based Learning (PBL) dengan studi kasus nyata tentang topup game murah via Telegram, pendekatan kontekstual yang mengaitkan keamanan digital dengan kebiasaan peserta didik (topup game, belanja online), asesmen diagnostik, formatif, dan sumatif, serta pembelajaran berbasis praktik mandiri melalui pengecekan kekuatan password menggunakan website passwordmonster.com dan pengaturan Google Authenticator langsung di ponsel masing-masing.',
+                keberhasilan: 'Faktor-faktor yang dapat menentukan keberhasilan penerapan produk pembelajaran ini antara lain: penggunaan studi kasus yang relevan dengan kehidupan sehari-hari peserta didik (topup Free Fire, tawaran murah di Telegram), ketersediaan perangkat dan akses internet untuk praktik cek password dan instalasi Google Authenticator, keterlibatan aktif peserta didik dalam diskusi dan refleksi, serta kemitraan dengan guru BK dan orang tua untuk memperkuat pesan keamanan digital di luar kelas.',
+                perubahan: 'Untuk menyesuaikan dengan situasi kelas yang berbeda (misalnya keterbatasan akses internet, tidak semua siswa memiliki ponsel, atau alokasi waktu lebih singkat), beberapa komponen yang dapat diubah adalah: mengganti praktik Google Authenticator dengan simulasi berbasis kertas atau video demonstrasi, menggunakan diskusi kelompok kecil sebagai pengganti praktik mandiri jika perangkat terbatas, menyederhanakan LKPD menjadi soal pilihan ganda dan isian singkat saja, serta menambah analogi dari dunia kayu (misalnya password kuat seperti sambungan kayu yang kokoh, scam seperti kayu lapuk yang tampak bagus tapi rapuh) untuk meningkatkan keterkaitan jurusan.'
+            }
+        }
+    ];
+
+    container.innerHTML = siklus.map(s => `
+        <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+            <div class="${s.color} px-6 py-4">
+                <h3 class="text-xl font-bold text-white flex items-center">
+                    <i class="fas fa-sync-alt mr-2"></i> ${s.title}
+                </h3>
+            </div>
+
+            <!-- 3 Card RPP/Hasil -->
+            <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- RPP 1 -->
+                <div class="glass p-4 rounded-xl border-l-4 border-brand-500">
+                    <div class="flex items-center mb-3 text-brand-600 dark:text-brand-400">
+                        <i class="fas fa-file-pdf text-2xl mr-3"></i>
+                        <h4 class="font-semibold">Modul Ajar / RPP 1</h4>
+                    </div>
+                    <p class="text-xs text-gray-500 mb-4">Format PDF, Ukuran: 2MB</p>
+                    <div class="flex space-x-2">
+                        <button onclick="previewDoc('${s.ids.rpp1}')" class="flex-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-sm py-2 rounded-lg transition">
+                            <i class="fas fa-eye mr-1"></i> Preview
+                        </button>
+                        <button onclick="downloadPDF('${s.ids.rpp1}')" class="flex-1 bg-brand-500 hover:bg-brand-600 text-white text-sm py-2 rounded-lg transition">
+                            <i class="fas fa-download mr-1"></i> Unduh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- RPP 2 -->
+                <div class="glass p-4 rounded-xl border-l-4 border-accent-pink">
+                    <div class="flex items-center mb-3 text-accent-pink">
+                        <i class="fas fa-file-pdf text-2xl mr-3"></i>
+                        <h4 class="font-semibold">Modul Ajar / RPP 2</h4>
+                    </div>
+                    <p class="text-xs text-gray-500 mb-4">Format PDF, Ukuran: 2.5MB</p>
+                    <div class="flex space-x-2">
+                        <button onclick="previewDoc('${s.ids.rpp2}')" class="flex-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-sm py-2 rounded-lg transition">
+                            <i class="fas fa-eye mr-1"></i> Preview
+                        </button>
+                        <button onclick="downloadPDF('${s.ids.rpp2}')" class="flex-1 bg-accent-pink hover:bg-pink-600 text-white text-sm py-2 rounded-lg transition">
+                            <i class="fas fa-download mr-1"></i> Unduh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hasil Kerja Murid -->
+                <div class="glass p-4 rounded-xl border-l-4 border-accent-teal">
+                    <div class="flex items-center mb-3 text-accent-teal">
+                        <i class="fas fa-images text-2xl mr-3"></i>
+                        <h4 class="font-semibold">Hasil Kerja Murid</h4>
+                    </div>
+                    <p class="text-xs text-gray-500 mb-4">Format PDF (Scan), Ukuran: 5MB</p>
+                    <div class="flex space-x-2">
+                        <button onclick="previewDoc('${s.ids.hasil}')" class="flex-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-sm py-2 rounded-lg transition">
+                            <i class="fas fa-eye mr-1"></i> Preview
+                        </button>
+                        <button onclick="downloadPDF('${s.ids.hasil}')" class="flex-1 bg-accent-teal hover:bg-teal-600 text-white text-sm py-2 rounded-lg transition">
+                            <i class="fas fa-download mr-1"></i> Unduh
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD ANALISIS & REFLEKSI (COLLAPSIBLE) -->
+            <div class="px-6 pb-6">
+                <div class="glass rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <!-- Header yang bisa diklik untuk toggle -->
+                    <div class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                         onclick="toggleCollapse(this)">
+                        <h4 class="text-lg font-bold flex items-center">
+                            <i class="fas fa-clipboard-check text-brand-500 mr-2"></i>
+                            Analisis & Refleksi Produk Pembelajaran
+                        </h4>
+                        <i class="fas fa-chevron-down transition-transform duration-300" id="icon-${s.num}"></i>
+                    </div>
+                    <!-- Isi refleksi (ditampilkan / disembunyikan) -->
+                    <div class="collapse-content px-4 pb-4" id="refleksi-siklus-${s.num}">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <h5 class="font-semibold text-sm mb-2 text-yellow-600 dark:text-yellow-400">
+                                    <i class="fas fa-exclamation-triangle mr-1"></i> Kendala dalam Penyusunan
+                                </h5>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                    ${s.refleksi.kendala}
+                                </p>
                             </div>
-                        </div>
-                        <div class="glass p-4 rounded-xl border-l-4 border-accent-pink">
-                            <div class="flex items-center mb-3 text-accent-pink"><i class="fas fa-file-pdf text-2xl mr-3"></i><h4 class="font-semibold">Modul Ajar / RPP 2</h4></div>
-                            <p class="text-xs text-gray-500 mb-4">Format PDF, Ukuran: 2.5MB</p>
-                            <div class="flex space-x-2">
-                                <button onclick="previewDoc('${s.ids.rpp2}')" class="flex-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-sm py-2 rounded-lg transition"><i class="fas fa-eye mr-1"></i> Preview</button>
-                                <button onclick="downloadPDF('${s.ids.rpp2}')" class="flex-1 bg-accent-pink hover:bg-pink-600 text-white text-sm py-2 rounded-lg transition"><i class="fas fa-download mr-1"></i> Unduh</button>
+                            <div>
+                                <h5 class="font-semibold text-sm mb-2 text-blue-600 dark:text-blue-400">
+                                    <i class="fas fa-book-open mr-1"></i> Teori / Konsep Pedagogi
+                                </h5>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                    ${s.refleksi.pedagogi}
+                                </p>
                             </div>
-                        </div>
-                        <div class="glass p-4 rounded-xl border-l-4 border-accent-teal">
-                            <div class="flex items-center mb-3 text-accent-teal"><i class="fas fa-images text-2xl mr-3"></i><h4 class="font-semibold">Hasil Kerja Murid</h4></div>
-                            <p class="text-xs text-gray-500 mb-4">Format PDF (Scan), Ukuran: 5MB</p>
-                            <div class="flex space-x-2">
-                                <button onclick="previewDoc('${s.ids.hasil}')" class="flex-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-sm py-2 rounded-lg transition"><i class="fas fa-eye mr-1"></i> Preview</button>
-                                <button onclick="downloadPDF('${s.ids.hasil}')" class="flex-1 bg-accent-teal hover:bg-teal-600 text-white text-sm py-2 rounded-lg transition"><i class="fas fa-download mr-1"></i> Unduh</button>
+                            <div>
+                                <h5 class="font-semibold text-sm mb-2 text-green-600 dark:text-green-400">
+                                    <i class="fas fa-check-circle mr-1"></i> Faktor Keberhasilan
+                                </h5>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                    ${s.refleksi.keberhasilan}
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="font-semibold text-sm mb-2 text-purple-600 dark:text-purple-400">
+                                    <i class="fas fa-sync-alt mr-1"></i> Perubahan untuk Kelas Lain
+                                </h5>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                    ${s.refleksi.perubahan}
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            `).join('');
-        }
+            </div>
+        </div>
+    `).join('');
+
+    // Set semua konten collapse dalam keadaan terbuka (default)
+    document.querySelectorAll('.collapse-content').forEach(el => {
+        el.style.maxHeight = el.scrollHeight + 'px';
+        el.style.overflow = 'hidden';
+        el.style.transition = 'max-height 0.4s ease';
+    })
+}
 
         // ========== RENDER PENILAIAN DENGAN ID GOOGLE DRIVE ==========
         function renderPenilaianCards() {
@@ -1254,6 +1374,67 @@
 
         // Fungsi downloadMock untuk placeholder gambar di galeri (tetap dipertahankan)
         function downloadMock(filename) { showCustomAlert('Mengunduh Berkas', `Memulai unduhan: ${filename}...`); }
+
+        function toggleCollapse(headerElement) {
+    const parent = headerElement.closest('.glass');
+    const content = parent.querySelector('.collapse-content');
+    const icon = headerElement.querySelector('i.fa-chevron-down');
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        // Sedang terbuka -> tutup
+        content.style.maxHeight = '0px';
+        icon.style.transform = 'rotate(-90deg)';
+    } else {
+        // Sedang tertutup -> buka
+        content.style.maxHeight = content.scrollHeight + 'px';
+        icon.style.transform = 'rotate(0deg)';
+    }
+
+    
+}
+function playVideo(fileID) {
+    const modal = document.getElementById('doc-modal');
+    const content = document.getElementById('doc-modal-content');
+    const viewer = document.getElementById('doc-viewer');
+    const spinner = document.getElementById('doc-spinner');
+    if (!modal || !content) return;
+
+    // URL embed video Google Drive (tanpa batasan download)
+    const embedUrl = `https://drive.google.com/file/d/${fileID}/preview`;
+
+    // Tampilkan modal
+    modal.classList.remove('hidden');
+    modal.style.display = 'flex';
+    modal.offsetHeight; // force reflow
+    modal.classList.remove('opacity-0');
+    content.classList.remove('scale-95');
+    content.classList.add('scale-100');
+
+    // Reset dan tampilkan spinner
+    viewer.innerHTML = '';
+    viewer.classList.add('hidden');
+    spinner.classList.remove('hidden');
+
+    // Buat iframe untuk video
+    const iframe = document.createElement('iframe');
+    iframe.src = embedUrl;
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+    iframe.style.borderRadius = '8px';
+    iframe.allow = 'autoplay; fullscreen';
+    iframe.allowFullscreen = true;
+    iframe.onload = () => {
+        spinner.classList.add('hidden');
+        viewer.classList.remove('hidden');
+        viewer.classList.add('flex');
+    };
+    viewer.appendChild(iframe);
+
+    // Ubah judul modal
+    document.getElementById('doc-title').innerHTML = '<i class="fas fa-video mr-2"></i> Video Praktik Pembelajaran';
+}
+
     </script>
 </body>
 </html>
