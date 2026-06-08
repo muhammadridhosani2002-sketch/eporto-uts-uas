@@ -1502,11 +1502,14 @@
         '11lNMlGWTtFd-5ZZQfhR0Xyvx3rAAnsQo'
     ];
 
-    grid.innerHTML = photoIDs.map((id, i) => {
-        const thumbnailUrl = `https://drive.google.com/thumbnail?id=${id}&sz=w600`;
+     grid.innerHTML = photoIDs.map((id, i) => {
+        const thumbnailUrl = `https://lh3.googleusercontent.com/d/${id}=s600`; // ← PERBAIKAN
         return `
         <div class="relative group rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all aspect-video cursor-pointer" onclick="openPhotoModal('${id}')">
-            <img src="${thumbnailUrl}" alt="Dokumentasi ${i+1}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+            <img src="${thumbnailUrl}" alt="Dokumentasi ${i+1}" 
+                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                 loading="lazy"
+                 referrerpolicy="no-referrer">  <!-- ← TAMBAHKAN -->
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                 <h4 class="text-white font-semibold text-sm mb-2 translate-y-4 group-hover:translate-y-0 transition-transform">Dokumentasi ${i+1}</h4>
                 <div class="flex space-x-2 translate-y-4 group-hover:translate-y-0 transition-transform delay-75">
@@ -1518,17 +1521,18 @@
     }).join('');
 }
 
+
 // === Fungsi untuk galeri foto dari Google Drive ===
 function openPhotoModal(id) {
     const modal = document.getElementById('photo-modal');
     const img = document.getElementById('photo-modal-img');
     if (!modal || !img) return;
-    // Gunakan direct link untuk kualitas penuh
-    img.src = `https://drive.google.com/uc?id=${id}`;
-    img.setAttribute('data-id', id);  // simpan ID untuk download
+    // Gunakan ukuran lebih besar untuk modal
+    img.src = `https://lh3.googleusercontent.com/d/${id}=s1200`;  // ← PERBAIKAN
+    img.setAttribute('data-id', id);
     modal.classList.remove('hidden');
     modal.style.display = 'flex';
-    modal.offsetHeight;  // reflow
+    modal.offsetHeight;
     modal.classList.remove('opacity-0');
 }
 
