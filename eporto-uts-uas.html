@@ -808,7 +808,7 @@
             <div class="mt-12 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
                 <div class="bg-gray-800 dark:bg-gray-900 px-6 py-4"><h3 class="text-xl font-bold text-white flex items-center"><i class="fas fa-video mr-2 text-red-500"></i> Video Praktik Pembelajaran</h3></div>
                 <div class="p-6 flex flex-col lg:flex-row gap-6 items-center">
-                    <div class="w-full lg:w-1/2"><div class="relative pt-[56.25%] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-inner group"><img src="https://placehold.co/800x450/374151/ffffff?text=Thumbnail+Video" alt="Thumbnail" class="absolute top-0 left-0 w-full h-full object-cover"><button onclick="playVideo('1roZ-zz3schyYgQM71PV5cyjx23dULzkb')" class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition-colors"><i class="fas fa-play-circle text-6xl text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all"></i></button></div></div>
+                    <div class="w-full lg:w-1/2"><div class="relative pt-[56.25%] rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-inner group"><img src="video.jpeg" alt="Thumbnail" class="absolute top-0 left-0 w-full h-full object-cover"><button onclick="playVideo('1roZ-zz3schyYgQM71PV5cyjx23dULzkb')" class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/60 transition-colors"><i class="fas fa-play-circle text-6xl text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all"></i></button></div></div>
                     <div class="w-full lg:w-1/2 space-y-4"><h4 class="text-2xl font-bold text-gray-800 dark:text-white">Pelaksanaan Pembelajaran Model PBL</h4><p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">Video ini merupakan dokumentasi pelaksanaan praktik mengajar menggunakan model Prolem Based Learning.</p><div class="flex gap-3"><span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs font-semibold"><i class="far fa-clock mr-1"></i> 4 x 45 Menit</span><span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs font-semibold"><i class="fas fa-map-marker-alt mr-1"></i> Kelas X Kayu A</span></div></div>
                 </div>
             </div>
@@ -818,6 +818,74 @@
         <section id="penilaian" class="page-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="py-8 border-b border-gray-200 dark:border-gray-700 mb-8 text-center"><div class="inline-flex justify-center items-center w-16 h-16 rounded-full bg-accent-yellow/20 text-accent-yellow mb-4 text-3xl animate-float"><i class="fas fa-star"></i></div><h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Lembar Penilaian Guru Pamong</h2><p class="mt-2 text-gray-600 dark:text-gray-400">Dokumen evaluasi pelaksanaan pembelajaran dari Guru Pamong untuk setiap siklus.</p></div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto" id="penilaian-cards"></div>
+            <!-- Card Analisis & Refleksi Penilaian Guru Pamong (Siklus 1-3) -->
+<div class="mt-12 max-w-5xl mx-auto">
+    <div class="glass rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+        <!-- Header Collapse -->
+        <div class="flex items-center justify-between p-5 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors"
+             onclick="toggleCollapse(this)">
+            <h4 class="text-lg font-bold flex items-center">
+                <i class="fas fa-clipboard-check text-brand-500 mr-2"></i>
+                Analisis & Refleksi Penilaian Guru Pamong (Siklus 1–3)
+            </h4>
+            <i class="fas fa-chevron-down transition-transform duration-300" id="icon-analisis-refleksi"></i>
+        </div>
+
+        <!-- Isi (terbuka default) -->
+        <div class="collapse-content px-5 pb-5" id="analisis-refleksi"
+             style="max-height: 2000px; overflow: hidden; transition: max-height 0.4s ease;">
+            
+            <!-- ANALISIS UMUM -->
+            <h5 class="font-bold text-md text-brand-600 dark:text-brand-400 mb-3 flex items-center">
+                <i class="fas fa-search mr-2"></i> Analisis Umum
+            </h5>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div>
+                    <h6 class="font-semibold text-sm mb-2 text-yellow-600 dark:text-yellow-400">
+                        <i class="fas fa-star mr-1"></i> Kekuatan yang Tampak
+                    </h6>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm">
+                        Guru pamong menyoroti kekuatan saya dalam hal komunikasi yang jelas, kepercayaan diri, penampilan profesional, serta kemampuannya membuka pelajaran dengan apersepsi yang relevan dan menggunakan media pembelajaran sesuai kebutuhan murid, yang terus meningkat dari siklus ke siklus hingga mencapai skor maksimal di siklus 3.
+                    </p>
+                </div>
+                <div>
+                    <h6 class="font-semibold text-sm mb-2 text-blue-600 dark:text-blue-400">
+                        <i class="fas fa-lightbulb mr-1"></i> Area Pengembangan
+                    </h6>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm">
+                        Catatan pengembangan yang konsisten muncul adalah perlunya peningkatan metode pembelajaran kolaboratif (skor 2-3), pengorganisasian waktu yang lebih baik (skor 2-3), serta penyusunan instrumen penilaian yang lebih lengkap (kunci jawaban dan rubrik skor 2 di siklus 1, masih 3 di siklus 2-3), termasuk penerapan teknik scaffolding dan variasi media yang mengikuti transisi kegiatan.
+                    </p>
+                </div>
+                <div>
+                    <h6 class="font-semibold text-sm mb-2 text-green-600 dark:text-green-400">
+                        <i class="fas fa-check-circle mr-1"></i> Kesesuaian dengan RPP
+                    </h6>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm">
+                        Pelaksanaan pembelajaran secara umum sudah selaras dengan RPP yang dirancang, terlihat dari kenaikan nilai keduanya yang beriringan (siklus 1: 71,25 dan 71,3; siklus 2: 78,75 dan 78,75; siklus 3: 95 dan 95). Penyesuaian di lapangan terutama dilakukan pada aspek interaksi murid dan pemberian umpan balik, yang semula kurang optimal menjadi sangat baik pada siklus 3.
+                    </p>
+                </div>
+                <div>
+                    <h6 class="font-semibold text-sm mb-2 text-purple-600 dark:text-purple-400">
+                        <i class="fas fa-sync-alt mr-1"></i> Rencana Tindak Lanjut
+                    </h6>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm">
+                        Berdasarkan masukan seluruh siklus, langkah strategis yang akan diambil adalah: (1) merancang kegiatan diskusi kelompok dengan alokasi waktu yang lebih terstruktur, (2) menyusun rubrik penilaian dan kisi-kisi jawaban secara lengkap sebelum mengajar, (3) menerapkan variasi media pembelajaran yang melibatkan partisipasi aktif murid sejak awal kegiatan inti, serta (4) melakukan simulasi transisi kegiatan untuk memastikan kesinambungan penguatan kompetensi murid.
+                    </p>
+                </div>
+            </div>
+
+            <!-- REFLEKSI PRIBADI -->
+            <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+                <h5 class="font-bold text-md text-accent-pink mb-3 flex items-center">
+                    <i class="fas fa-heart mr-2"></i> Refleksi Pribadi
+                </h5>
+                <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                    Setelah membaca ketiga lembar penilaian, saya belajar bahwa konsistensi refleksi dan perbaikan bertahap benar-benar berdampak pada kualitas mengajar. Penilaian ini meyakinkan saya bahwa kegagalan di siklus awal bukan akhir, melainkan peta menuju perbaikan. Perubahan pola pikir yang akan saya bawa ke depan adalah menjadikan setiap masukan sebagai fondasi untuk terus berinovasi, terutama dalam mengelola waktu dan merancang asesmen yang autentik, sehingga pembelajaran tidak hanya berpusat pada guru tetapi benar-benar membangun kompetensi murid secara kolaboratif.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
         </section>
 
         <!-- HALAMAN MODEL GURU -->
@@ -840,16 +908,16 @@
         <section id="refleksi" class="page-section max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="py-12"><div class="text-center mb-10"><span class="bg-brand-100 dark:bg-brand-900 text-brand-600 dark:text-brand-300 px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase">E-Portofolio 2</span><h2 class="text-3xl md:text-4xl font-bold mt-4 mb-2">Refleksi Akhir PPL Terbimbing</h2><div class="w-24 h-1 bg-brand-500 mx-auto rounded-full"></div></div>
                 <div class="space-y-8">
-                    <div class="glass p-8 rounded-2xl shadow-md border-l-8 border-brand-500 relative animate-float"><div class="absolute top-4 left-4 text-brand-100 dark:text-gray-700/50 text-6xl font-black z-0">Q1</div><div class="relative z-10"><h3 class="text-xl font-bold mb-4">Apa yang telah dipelajari selama tahapan PPL Terbimbing?</h3><p class="text-gray-700 dark:text-gray-300">...</p></div></div>
-                    <div class="glass p-8 rounded-2xl shadow-md border-l-8 border-accent-pink relative animate-float-delayed"><div class="absolute top-4 left-4 text-pink-50 dark:text-gray-700/50 text-6xl font-black z-0">Q2</div><div class="relative z-10"><h3 class="text-xl font-bold mb-4">Apakah terdapat pengalaman menantang dan bagaimana solusinya?</h3><p class="text-gray-700 dark:text-gray-300">...</p></div></div>
-                    <div class="glass p-8 rounded-2xl shadow-md border-l-8 border-accent-teal relative animate-float"><div class="absolute top-4 left-4 text-teal-50 dark:text-gray-700/50 text-6xl font-black z-0">Q3</div><div class="relative z-10"><h3 class="text-xl font-bold mb-4">Umpan balik konstruktif untuk perbaikan ke tahap PPL Mandiri?</h3><p class="text-gray-700 dark:text-gray-300">...</p></div></div>
+                    <div class="glass p-8 rounded-2xl shadow-md border-l-8 border-brand-500 relative animate-float"><div class="absolute top-4 left-4 text-brand-100 dark:text-gray-700/50 text-6xl font-black z-0">Q1</div><div class="relative z-10"><h3 class="text-xl font-bold mb-4">Apa yang telah dipelajari selama tahapan PPL Terbimbing?</h3><p class="text-gray-700 dark:text-gray-300">Selama tahapan PPL Terbimbing di SMK Negeri 5 Yogyakarta, saya telah mempelajari berbagai keterampilan penting dalam menjadi pendidik profesional, antara lain cara menyusun Rencana Pelaksanaan Pembelajaran (RPP) yang baik dan benar sesuai dengan kurikulum yang berlaku, membuat media pembelajaran yang interaktif dan menarik untuk meningkatkan motivasi belajar siswa, memahami karakteristik siswa yang beragam sehingga dapat menyesuaikan pendekatan pembelajaran, mengintegrasikan materi dengan konteks jurusan atau keahlian siswa agar lebih relevan dan aplikatif, serta membimbing siswa yang mengalami kesulitan belajar secara individual. Selain itu, saya juga belajar mengelola dinamika kelas secara efektif, melakukan evaluasi pembelajaran yang berkelanjutan, serta berkolaborasi dengan guru pamong dan rekan sejawat untuk terus memperbaiki kualitas pengajaran.</p></div></div>
+                    <div class="glass p-8 rounded-2xl shadow-md border-l-8 border-accent-pink relative animate-float-delayed"><div class="absolute top-4 left-4 text-pink-50 dark:text-gray-700/50 text-6xl font-black z-0">Q2</div><div class="relative z-10"><h3 class="text-xl font-bold mb-4">Apakah terdapat pengalaman menantang dan bagaimana solusinya?</h3><p class="text-gray-700 dark:text-gray-300">Selama PPL Terbimbing di SMK Negeri 5 Yogyakarta, saya menghadapi tantangan dalam menyampaikan materi keamanan digital yang relevan dengan jurusan kayu (Teknik Konstruksi Kayu atau Desain Mebel) karena secara substantif kedua bidang tersebut tampak kurang berhubungan langsung. Solusi yang saya terapkan adalah dengan membuat apersepsi yang kontekstual dan menarik, yakni mengangkat kasus penipuan daring (scam) yang dikaitkan dengan kebiasaan siswa seperti melakukan top up game online. Pendekatan ini berhasil membangun keterkaitan bahwa keamanan digital tetap penting bagi siapa pun, termasuk siswa jurusan kayu, karena aktivitas digital seperti transaksi pembelian material, pemasaran produk, atau sekadar hiburan game juga rawan terhadap ancaman siber. Dengan demikian, siswa menjadi lebih tertarik dan memahami bahwa materi keamanan digital bersifat universal dan relevan untuk melindungi aktivitas daring mereka sehari-hari.</p></div></div>
+                    <div class="glass p-8 rounded-2xl shadow-md border-l-8 border-accent-teal relative animate-float"><div class="absolute top-4 left-4 text-teal-50 dark:text-gray-700/50 text-6xl font-black z-0">Q3</div><div class="relative z-10"><h3 class="text-xl font-bold mb-4">Umpan balik konstruktif untuk perbaikan ke tahap PPL Mandiri?</h3><p class="text-gray-700 dark:text-gray-300">Umpan balik konstruktif untuk perbaikan dari tahap PPL Terbimbing menuju PPL Mandiri bagi saya adalah bahwa saya perlu meningkatkan kemandirian dalam merencanakan dan melaksanakan pembelajaran tanpa ketergantungan pada guru pamong, termasuk menyusun seluruh perangkat pembelajaran (RPP, bahan ajar, LKPD, instrumen penilaian) secara lengkap dan sistematis. Saya juga harus mengembangkan kemampuan pengelolaan kelas yang lebih baik, seperti mengantisipasi dinamika siswa, mengatur waktu secara disiplin, serta merancang kegiatan yang berpusat pada siswa dengan variasi metode (diskusi, proyek, problem-based learning). Selain itu, saya perlu memperkuat keterampilan refleksi diri dan evaluasi autentik agar dapat mengidentifikasi kelemahan secara mandiri dan melakukan perbaikan berkelanjutan. Tak kalah penting, saya harus mengasah komunikasi asertif dan pendekatan personal kepada siswa untuk membangun hubungan guru-murid yang suportif, mengingat di PPL Mandiri saya akan memegang tanggung jawab penuh atas keberhasilan belajar mereka.</p></div></div>
                 </div>
         </section>
 
         <!-- HALAMAN FILOSOFI -->
         <section id="filosofi" class="page-section max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="py-12"><div class="text-center mb-10"><i class="fas fa-leaf text-5xl text-accent-teal mb-4 animate-float"></i><h2 class="text-3xl md:text-4xl font-bold mb-2">Filosofi Mengajar</h2><p class="text-gray-500 italic">Ideologi yang mendasari langkah saya di ruang kelas.</p></div>
-                <div class="bg-white dark:bg-gray-800 p-8 md:p-12 rounded-3xl shadow-xl relative prose prose-lg dark:prose-invert max-w-none"><p class="mb-6 text-justify text-gray-700 dark:text-gray-300 leading-loose"><span class="float-left text-6xl font-bold text-brand-500 mr-2 -mt-2">P</span>endidikan bagi saya bukan sekadar mentransfer pengetahun ke dalam bejana kosong, melainkan sebuah proses menyalakan api keingintahuan...</p><p class="mb-6 text-justify text-gray-700 dark:text-gray-300 leading-loose">Keyakinan saya sejalan dengan pemikiran luhur Ki Hajar Dewantara mengenai sistem "Among"...</p><p class="text-justify text-gray-700 dark:text-gray-300 leading-loose">Nilai-nilai empati, inklusivitas, dan growth mindset menjadi fondasi...</p></div>
+                <div class="bg-white dark:bg-gray-800 p-8 md:p-12 rounded-3xl shadow-xl relative prose prose-lg dark:prose-invert max-w-none"><p class="mb-6 text-justify text-gray-700 dark:text-gray-300 leading-loose"><span class="float-left text-6xl font-bold text-brand-500 mr-2 -mt-2">P</span>endidikan bagi saya bukan sekadar mentransfer pengetahuan ke dalam bejana kosong, melainkan sebuah proses menyalakan api keingintahuan yang akan terus menyala sepanjang hayat. Saya percaya bahwa setiap siswa memiliki potensi unik yang perlu digali, bukan sekadar diisi dengan informasi.</p><p class="mb-6 text-justify text-gray-700 dark:text-gray-300 leading-loose">Keyakinan saya sejalan dengan pemikiran luhur Ki Hajar Dewantara mengenai sistem "Among", yaitu ing ngarsa sung tuladha, ing madya mangun karsa, tut wuri handayani. Di depan, saya memberi teladan; di tengah, saya membangkitkan semangat dan kemauan siswa; dari belakang, saya memberikan dorongan dan kebebasan bertanggung jawab. Prinsip ini mengajarkan bahwa guru adalah pamong yang menuntun tumbuhnya kekuatan kodrat siswa, bukan memaksakan kehendak.</p><p class="text-justify text-gray-700 dark:text-gray-300 leading-loose">Nilai-nilai empati, inklusivitas, dan growth mindset menjadi fondasi utama setiap langkah saya di ruang kelas. Empati membuat saya selalu berusaha memahami latar belakang, kesulitan, dan cara belajar setiap siswa. Inklusivitas mendorong saya untuk menciptakan lingkungan belajar yang aman dan menghargai keberagaman, tanpa membedakan jurusan, kemampuan, atau gaya belajar. Sementara growth mindset mengajarkan saya dan siswa bahwa kegagalan adalah bagian dari proses belajar, dan usaha serta strategi yang tepat dapat mengubah kemampuan seseorang.</p></div>
         </section>
     </main>
 
@@ -880,7 +948,18 @@
             <div class="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900"><h3 id="doc-title" class="font-bold text-lg text-brand-600 dark:text-brand-400"><i class="fas fa-file-pdf mr-2"></i> Preview Dokumen</h3><button onclick="closeModal('doc-modal')" class="text-gray-500 hover:text-red-500 text-2xl transition"><i class="fas fa-times"></i></button></div>
             <div class="flex-1 bg-gray-200 dark:bg-gray-700 flex flex-col items-center justify-center p-8 text-center relative overflow-hidden"><div id="doc-spinner" class="animate-spin text-4xl text-brand-500 mb-4"><i class="fas fa-circle-notch"></i></div><div id="doc-viewer" class="hidden flex-col items-center justify-center w-full h-full max-w-2xl bg-white dark:bg-gray-800 rounded shadow-sm border border-gray-300 dark:border-gray-600 p-8"><!-- iframe akan dimasukkan di sini melalui JavaScript --></div></div></div>
     </div>
-
+    <!-- Modal Preview Foto -->
+<div id="photo-modal" class="fixed inset-0 z-[70] hidden items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300" onclick="closePhotoModal()">
+    <div class="relative max-w-5xl max-h-[90vh] mx-4" onclick="event.stopPropagation()">
+        <button onclick="closePhotoModal()" class="absolute -top-4 -right-4 w-10 h-10 bg-red-500 hover:bg-red-600 rounded-full text-white flex items-center justify-center shadow-lg z-10"><i class="fas fa-times"></i></button>
+        <img id="photo-modal-img" src="" class="max-w-full max-h-[85vh] rounded-xl shadow-2xl object-contain" alt="Foto Dokumentasi">
+        <div class="absolute bottom-4 right-4">
+            <button id="photo-download-btn" class="bg-white/20 hover:bg-white/40 text-white px-4 py-2 rounded-lg backdrop-blur-sm flex items-center transition" onclick="downloadCurrentPhoto()">
+                <i class="fas fa-download mr-2"></i> Unduh
+            </button>
+        </div>
+    </div>
+</div>
     <!-- Custom Alert -->
     <div id="custom-alert" class="fixed top-4 right-4 z-[100] transform transition-all duration-300 translate-x-full opacity-0"><div class="bg-white dark:bg-gray-800 border-l-4 border-brand-500 shadow-xl rounded-r-lg p-4 flex items-center min-w-[300px]"><div class="text-brand-500 mr-3 text-2xl"><i class="fas fa-info-circle"></i></div><div><h4 class="font-bold text-gray-800 dark:text-white text-sm" id="alert-title">Informasi</h4><p class="text-xs text-gray-600 dark:text-gray-400" id="alert-msg">Pesan.</p></div></div></div>
 
@@ -1123,7 +1202,7 @@
     }
 
     // Gunakan Google Docs Viewer agar tidak diblokir iframe
-    const embedUrl = `https://docs.google.com/viewer?url=https://drive.google.com/uc?id=${fileID}&embedded=true`;
+    const embedUrl = `https://drive.google.com/file/d/${fileID}/preview`;
 
     // Tampilkan modal
     modal.classList.remove('hidden');
@@ -1344,9 +1423,9 @@
             const container = document.getElementById('penilaian-cards');
             if (!container) return;
             const penilaianData = [
-                { n: 1, id: 'FILE_ID_PENILAIAN_SIKLUS1' },
-                { n: 2, id: 'FILE_ID_PENILAIAN_SIKLUS2' },
-                { n: 3, id: 'FILE_ID_PENILAIAN_SIKLUS3' }
+                { n: 1, id: '1E_J25qEhp_v5u-98xttLKDMEdU870ryK' },
+                { n: 2, id: '1oagZOELDKUiSJFJ5PFBEcJKDNPrvNHFe' },
+                { n: 3, id: '1cWKHM0nFdBwVWlWBo7bSAUrjr9D7QYDv' }
             ];
             container.innerHTML = penilaianData.map(p => `
                 <div class="glass rounded-2xl p-6 text-center shadow-lg hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden group">
@@ -1363,17 +1442,118 @@
         }
 
         function renderGaleri() {
-            const grid = document.getElementById('galeri-grid');
-            if (!grid) return;
-            const docs = ['Kegiatan Kelas', 'Diskusi Kelompok', 'Presentasi Siswa', 'Bimbingan Guru Pamong', 'Ice Breaking', 'Evaluasi Pembelajaran', 'Pameran Karya', 'Foto Bersama'];
-            grid.innerHTML = docs.map((desc, i) => {
-                const color = ['4f46e5', 'ec4899', '14b8a6', 'f59e0b'][i % 4];
-                return `<div class="relative group rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all aspect-video"><img src="https://placehold.co/600x400/${color}/ffffff?text=Dokumentasi+${i+1}" alt="${desc}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4"><h4 class="text-white font-semibold text-sm mb-2 translate-y-4 group-hover:translate-y-0 transition-transform">${desc}</h4><div class="flex space-x-2 translate-y-4 group-hover:translate-y-0 transition-transform delay-75"><button onclick="previewImage('https://placehold.co/600x400/${color}/ffffff?text=Dokumentasi+${i+1}','${desc}')" class="p-2 bg-white/20 hover:bg-white/40 rounded-full text-white backdrop-blur-sm"><i class="fas fa-search-plus"></i></button><button onclick="downloadMock('Foto_${i+1}.jpg')" class="p-2 bg-white/20 hover:bg-white/40 rounded-full text-white backdrop-blur-sm"><i class="fas fa-download"></i></button></div></div></div>`;
-            }).join('');
-        }
+    const grid = document.getElementById('galeri-grid');
+    if (!grid) return;
 
-        // Fungsi downloadMock untuk placeholder gambar di galeri (tetap dipertahankan)
-        function downloadMock(filename) { showCustomAlert('Mengunduh Berkas', `Memulai unduhan: ${filename}...`); }
+    // Daftar ID foto dari Google Drive (53 file)
+    const photoIDs = [
+        '1nfeG1nNfANJfBRnTtzvHTuyfoOOHkDvC',
+        '1oaboOK7AkGhl3jlkzkutVT2PFjWzSwmd',
+        '1_93iuyFT5cvDl5MZBgRPQr_jXqp451Va',
+        '1yT7QFmPq0My6xinZYHpqh1gozVqQ_BSS',
+        '1tgsOKBCr_sntVSkyH4_PWsl8JhpEYeU3',
+        '1cIONKU83jbbuaclWoOuE2y_OYacoIUZo',
+        '1nARdA8pwv57Klrd-ortrsgWJDAYCxe39',
+        '10glLpvsSnBTjmYzJUmsEgUr_qFQRszq8',
+        '1D6Qz4QtdAjoB0l7-W9_go6pUNMpfkFPB',
+        '1VWAzLZMgQSRxMl7YtYhJMid3-8slz0u0',
+        '1_Q6pOw9EsLprjzSUpI6_d0Vf_Z8vC1Db',
+        '1UENAVLxDvjv6_ilYoWntTYLbLXOuAwF8',
+        '1dAk5uM0ic6QyDl452mIxrbaLckRzzZG-',
+        '1RW6PuVyIJ4lNjZo0M_VsYHAkLhcoDoLp',
+        '1X8g-IPZI5t1GstHt9gZdHbxqnQjk503l',
+        '1KtFAzNdUU0uBohh0zbwGb6vSt4k7G0su',
+        '11gq7fwk1qQNvQ61Zhkai0b6fjrLzfy7G',
+        '1ZX9oI4dbovDg4B7bk7Wxz-187j0ojxS6',
+        '1eI2pOd-BOfSRRo_DI9YZrXUQy2VJVvi1',
+        '1-NdDIBKUkObiglFf2wKIwLespxgrXP4a',
+        '1sYRllSd1kMRbs52IrvS-s_VCNyiqYjeN',
+        '1CvyZaJtFSsU_-if1BeJuNkuLuI91PMIL',
+        '1PJLf2-cTfWfhG9jptK5quW02qIDEVLRk',
+        '1yPCYU8fuRxXsQuxdRKzgTVnXEsEjFN3n',
+        '1K6v8mh-7P71f2N8QTaZOpjtg3IstElva',
+        '1Eo2gWw-H7y3WzZ6424pkBFqjg77BOtYt',
+        '1kwPfcAiJg7EEzK7VhPnVMdRPOaqqlM-i',
+        '1G6sI85odrSYs69AufQbqY3cy4fe2FAAs',
+        '1R9WUVlDHc3X96EIWHyq-PEX3sxN4TZ4m',
+        '1ryRZU6z-mzIP5KjjeczlAW0lfDuJ1TRh',
+        '1baQYlYNM-RL_n9eoQA6TWEHbiDjvkjdX',
+        '1F8SjjlnQg3uudIuNuy1e12gjuf_Y3V-q',
+        '13Iomfo_dh1zsl9avxJKwuI9r6S_GWcSO',
+        '1vHVXR6AVsgdfnJThtoWNVsA_rRyvwdOk',
+        '1JkKPjiVm6JObKSR8ak1iW1vcd2dszPns',
+        '1q1zDEnajWebCnd7xzM6fBO5ihE8pKLz1',
+        '127INTLXp2iRm6oPQrn4djQB6pMMNUP-O',
+        '1GKZq3k85qyFUwp0nK4cw8v5ANeliVCZi',
+        '1srO7G8P8QXHVy7-AdaWzHIsdutOiHrNl',
+        '1I5NFZGChh8U8hAv7va1kYckv6EANFMr2',
+        '1-YhbiyIFKgwBlW6Nc178IUBESI4u9JPe',
+        '1cJNKKDxWxTswtKqZt9Ij1PaINL3nKyut',
+        '1ETdw-wgCtYmsDpR_oKhrWEhQ8gta5uUx',
+        '10CTGhR8ML9ynaj6Uu02EIjapKop5WxQf',
+        '1qySO3ImHB-o3fwFVV7m7NjHE_xlA4Vsl',
+        '1KTys53umZ-ElqGHm1iHUHkiH9xvgBiEo',
+        '1Rt6YINCLGEmJYcdmSSR92_uEy5GJzRr1',
+        '142kwb7bVtDvoCA3MY2Q2f9NFlhdMI-0D',
+        '1nHDrA5Rehhe-KqwqewTwiaNcNLisXCYK',
+        '1r76xv9aKJ3la5lMzGa9KGZ_NI5Wr9QvH',
+        '1RX34DXOLYasgsd6PQtbgRNcFWGoAWDCD',
+        '15PE3GPbeKVrGKXIPC5YhUAmAtmVzvKQs',
+        '11lNMlGWTtFd-5ZZQfhR0Xyvx3rAAnsQo'
+    ];
+
+    grid.innerHTML = photoIDs.map((id, i) => {
+        const thumbnailUrl = `https://drive.google.com/thumbnail?id=${id}&sz=w600`;
+        return `
+        <div class="relative group rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all aspect-video cursor-pointer" onclick="openPhotoModal('${id}')">
+            <img src="${thumbnailUrl}" alt="Dokumentasi ${i+1}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                <h4 class="text-white font-semibold text-sm mb-2 translate-y-4 group-hover:translate-y-0 transition-transform">Dokumentasi ${i+1}</h4>
+                <div class="flex space-x-2 translate-y-4 group-hover:translate-y-0 transition-transform delay-75">
+                    <button onclick="event.stopPropagation(); openPhotoModal('${id}')" class="p-2 bg-white/20 hover:bg-white/40 rounded-full text-white backdrop-blur-sm"><i class="fas fa-search-plus"></i></button>
+                    <button onclick="event.stopPropagation(); downloadImage('${id}')" class="p-2 bg-white/20 hover:bg-white/40 rounded-full text-white backdrop-blur-sm"><i class="fas fa-download"></i></button>
+                </div>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+// === Fungsi untuk galeri foto dari Google Drive ===
+function openPhotoModal(id) {
+    const modal = document.getElementById('photo-modal');
+    const img = document.getElementById('photo-modal-img');
+    if (!modal || !img) return;
+    // Gunakan direct link untuk kualitas penuh
+    img.src = `https://drive.google.com/uc?id=${id}`;
+    img.setAttribute('data-id', id);  // simpan ID untuk download
+    modal.classList.remove('hidden');
+    modal.style.display = 'flex';
+    modal.offsetHeight;  // reflow
+    modal.classList.remove('opacity-0');
+}
+
+function closePhotoModal() {
+    const modal = document.getElementById('photo-modal');
+    if (!modal) return;
+    modal.classList.add('opacity-0');
+    setTimeout(() => {
+        modal.style.display = 'none';
+        modal.classList.add('hidden');
+    }, 300);
+}
+
+function downloadImage(id) {
+    window.open(`https://drive.google.com/uc?export=download&id=${id}`, '_blank');
+}
+
+function downloadCurrentPhoto() {
+    const img = document.getElementById('photo-modal-img');
+    if (img && img.dataset.id) {
+        downloadImage(img.dataset.id);
+    }
+}
+
+        
 
         function toggleCollapse(headerElement) {
     const parent = headerElement.closest('.glass');
