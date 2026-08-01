@@ -707,18 +707,40 @@
             </div>
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 absolute w-full shadow-xl">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <button onclick="switchPage('profil'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Profil</button>
-                <div class="pl-3 py-1 text-sm font-bold text-gray-500 uppercase tracking-wider">E-Portofolio 1</div>
-                <button onclick="switchPage('artefak'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Artefak</button>
-                <button onclick="switchPage('penilaian'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Penilaian</button>
-                <button onclick="switchPage('model-guru'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Model Guru</button>
-                <button onclick="switchPage('dokumentasi'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Dokumentasi</button>
-                <div class="pl-3 py-1 text-sm font-bold text-gray-500 uppercase tracking-wider mt-2">E-Portofolio 2</div>
-                <button onclick="switchPage('refleksi'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Refleksi PPL 1</button>
-                <button onclick="switchPage('filosofi'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Filosofi Mengajar</button>
-            </div>
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+
+        <!-- Profil -->
+        <button onclick="switchPage('profil'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Profil</button>
+
+        <!-- E-Portofolio 1 -->
+        <div class="pl-3 py-1 text-sm font-bold text-gray-500 uppercase tracking-wider">E-Portofolio 1</div>
+        <button onclick="switchPage('artefak'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Artefak</button>
+        <button onclick="switchPage('penilaian'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Penilaian</button>
+        <button onclick="switchPage('model-guru'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Model Guru</button>
+        <button onclick="switchPage('dokumentasi'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Dokumentasi</button>
+
+        <!-- E-Portofolio 2 -->
+        <div class="pl-3 py-1 text-sm font-bold text-gray-500 uppercase tracking-wider mt-2">E-Portofolio 2</div>
+        <button onclick="switchPage('refleksi'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Refleksi PPL 1</button>
+        <button onclick="switchPage('filosofi'); toggleMobileMenu()" class="block w-full text-left pl-6 pr-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Filosofi Mengajar</button>
+
+        <!-- ✅ TAMBAHAN: Refleksi Pengalaman Belajar (dengan submenu) -->
+        <div class="pl-3 py-1 text-sm font-bold text-gray-500 uppercase tracking-wider mt-2">Refleksi Pengalaman Belajar</div>
+
+        <!-- Tombol untuk toggle submenu -->
+        <div onclick="toggleMobileSubmenu(this)" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800 cursor-pointer flex items-center justify-between">
+            <span>Pilih Semester</span>
+            <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
         </div>
+
+        <!-- Submenu (default disembunyikan) -->
+        <div class="mobile-submenu pl-6 hidden">
+            <button onclick="switchPage('refleksi-semester1'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Semester 1</button>
+            <button onclick="switchPage('refleksi-semester2'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Semester 2</button>
+        </div>
+
+    </div>
+</div>
        
         
     </nav>
@@ -1159,6 +1181,18 @@
         }
 
         function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+
+        function toggleMobileSubmenu(header) {
+    const submenu = header.nextElementSibling;
+    const icon = header.querySelector('i.fa-chevron-down');
+    if (submenu.classList.contains('hidden')) {
+        submenu.classList.remove('hidden');
+        icon.style.transform = 'rotate(180deg)';
+    } else {
+        submenu.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+    }
+}
 
         const jeparaData = {
             'modal-ukiran': {
