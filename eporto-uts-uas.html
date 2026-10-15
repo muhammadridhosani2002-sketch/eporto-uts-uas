@@ -703,7 +703,7 @@
 
         <div class="relative group">
     <button class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-brand-500 transition inline-flex items-center">
-        Refleksi Pengalaman Belajar <i class="fas fa-chevron-down ml-1 text-xs"></i>
+        Seminar Pendidikan Profesi Guru <i class="fas fa-chevron-down ml-1 text-xs"></i>
     </button>
     <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg glass opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left z-50">
         <div class="py-1">
@@ -1963,28 +1963,116 @@ function renderSemester1() {
 function renderSemester2() {
     const container = document.getElementById('semester2-topics');
     if (!container) return;
-    const topics = [
-        'Pencegahan dan Penanganan Kekerasan di Perguruan Tinggi',
-        'Pengembangan Keprofesian Berkelanjutan',
-        'Pembelajaran Mendalam dan Asesmen Lanjut SMK',
-        'Pembelajaran Sosial Emosional',
-        'SMK N 5 Yogyakarta Praktik Pengalaman Lapangan (PPL) Mandiri',
-        'Seminar Pendidikan Profesi Guru',
-        'Projek Kepemimpinan'
+
+    // Data topik Semester 2 beserta ID artefak dan refleksi
+    const topicsData = [
+        {
+            title: 'Pembelajaran Mendalam dan Asesmen Lanjut SMK',
+            artifacts: [
+                '1GZAoTu_W64TriV0Lc9O2Df3Oes5PfLvo',
+                '1958tOf5zoAEJH6ramhzSp2fB79Ofza5o'
+            ],
+            reflection: '1pEcYoH2eb2tCyXBlc820I8TMYpdUB2UQ'
+        },
+        {
+            title: 'Pembelajaran Sosial Emosional',
+            artifacts: [
+                '1aRwQzgMBMvWR5r4wNnkN26nuhwzQ-hVl',
+                '1pcMkIM5qFhBv-ZGhHvVvroDIpsKj2OWU'
+            ],
+            reflection: '1naLvQofiXvA_THw6XaxfyZXF0kblmn4c'
+        },
+        {
+            title: 'Pengembangan Keprofesian dan Berkelanjutan',
+            artifacts: [
+                '1QI68UVr3ER_-D6fZ-0XrxXknAkGPoV7H',
+                '1E5lkN_KPag_TOEwDYkiZbJGpE0NwuSh6'
+            ],
+            reflection: '1veaYKzEL_SR-mcJYTijA7pvwuROBsGlN'
+        },
+        {
+            title: 'Proyek Kepemimpinan',
+            artifacts: [
+                '1ecfPmzrfEgjq3Z309yXgXOlTKQgF3na7'
+            ],
+            reflection: '104SH1wWQKERg6SKIjOoeK-XczSABoxX1'
+        },
+        {
+            title: 'SMK N 5 Yogyakarta Praktik Pengalaman Lapangan (PPL) Mandiri',
+            artifacts: [
+                '1P_ufhVOrbYiCS9vIj15gqqoJmK69vgws',
+                '1SdectjWdC0v46qlEY_zaou921gHDFNNF'
+            ],
+            reflection: '14ZUlFjvrmXFcmOPZcex4uBVSp_DrBV1r'
+        }
     ];
-    container.innerHTML = topics.map(title => `
+
+    container.innerHTML = topicsData.map((topic, index) => {
+        // Bangun kartu artefak (bisa lebih dari satu)
+        const artifactCards = topic.artifacts.map((id, i) => `
+            <div class="glass p-4 rounded-xl border-l-4 border-brand-500">
+                <div class="flex items-center mb-2 text-brand-500">
+                    <i class="fas fa-file-pdf text-2xl mr-3"></i>
+                    <h4 class="font-semibold">Artefak ${i + 1}</h4>
+                </div>
+                <p class="text-xs text-gray-500 mb-3">PDF - Dokumen artefak pembelajaran</p>
+                <div class="flex space-x-2">
+                    <button onclick="previewDoc('${id}')" class="flex-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-sm py-2 rounded-lg transition">
+                        <i class="fas fa-eye mr-1"></i> Preview
+                    </button>
+                    <button onclick="downloadPDF('${id}')" class="flex-1 bg-brand-500 hover:bg-brand-600 text-white text-sm py-2 rounded-lg transition">
+                        <i class="fas fa-download mr-1"></i> Unduh
+                    </button>
+                </div>
+            </div>
+        `).join('');
+
+        // Kartu refleksi
+        const reflectionCard = `
+            <div class="glass p-4 rounded-xl border-l-4 border-accent-pink">
+                <div class="flex items-center mb-2 text-accent-pink">
+                    <i class="fas fa-file-pdf text-2xl mr-3"></i>
+                    <h4 class="font-semibold">Artefak Refleksi</h4>
+                </div>
+                <p class="text-xs text-gray-500 mb-3">PDF - Hasil refleksi tertulis</p>
+                <div class="flex space-x-2">
+                    <button onclick="previewDoc('${topic.reflection}')" class="flex-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-sm py-2 rounded-lg transition">
+                        <i class="fas fa-eye mr-1"></i> Preview
+                    </button>
+                    <button onclick="downloadPDF('${topic.reflection}')" class="flex-1 bg-accent-pink hover:bg-pink-600 text-white text-sm py-2 rounded-lg transition">
+                        <i class="fas fa-download mr-1"></i> Unduh
+                    </button>
+                </div>
+            </div>
+        `;
+
+        // Gabungkan semua kartu dalam grid
+        const gridContent = `
+            <div class="mt-4">
+                <h5 class="font-bold text-md text-accent-teal mb-3 flex items-center">
+                    <i class="fas fa-file-pdf mr-2"></i> Artefak Bukti & Refleksi
+                </h5>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    ${artifactCards}
+                    ${reflectionCard}
+                </div>
+            </div>
+        `;
+
+        return `
         <div class="glass rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
             <div class="flex items-center justify-between p-5 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-colors"
                  onclick="toggleCollapse(this)">
                 <h4 class="text-lg font-bold flex items-center">
-                    <i class="fas fa-clipboard-check text-accent-pink mr-2"></i> ${title}
+                    <i class="fas fa-clipboard-check text-accent-pink mr-2"></i> ${topic.title}
                 </h4>
                 <i class="fas fa-chevron-down transition-transform duration-300"></i>
             </div>
             <div class="collapse-content px-5 pb-5" style="max-height: 0px; overflow: hidden; transition: max-height 0.4s ease;">
-                <p class="text-gray-500 text-sm italic mt-4">Refleksi 4C akan segera ditambahkan.</p>
+                ${gridContent}
             </div>
-        </div>`).join('');
+        </div>`;
+    }).join('');
 }
 
 // ================== PORTOFOLIO SEMESTER 2 ==================
