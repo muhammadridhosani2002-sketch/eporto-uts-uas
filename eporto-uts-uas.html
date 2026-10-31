@@ -688,8 +688,9 @@
     <button class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-brand-500 transition inline-flex items-center">
         Portofolio Semester 2 <i class="fas fa-chevron-down ml-1 text-xs"></i>
     </button>
-    <div class="absolute left-0 mt-2 w-64 rounded-md shadow-lg glass opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left z-50">
+    <div class="absolute left-0 mt-2 w-72 rounded-md shadow-lg glass opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left z-50">
         <div class="py-1">
+            <!-- ===== PORTOFOLIO 1 ===== -->
             <div class="px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Portofolio 1</div>
             <button onclick="navigateToPortofolio2('analisis-rpp')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Analisis RPP</button>
             <button onclick="navigateToPortofolio2('analisis-materi')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Analisis Materi Pembelajaran</button>
@@ -697,6 +698,14 @@
             <button onclick="navigateToPortofolio2('analisis-video')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Analisis Video Pembelajaran</button>
             <button onclick="navigateToPortofolio2('analisis-nonmengajar')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Analisis Kegiatan Non Mengajar</button>
             <button onclick="navigateToPortofolio2('analisis-instrumen')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Analisis Instrumen Penilaian</button>
+
+            <div class="border-t border-gray-200 dark:border-gray-700 my-2"></div>
+
+            <!-- ===== PORTOFOLIO 2 (BARU) ===== -->
+            <div class="px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Portofolio 2</div>
+            <button onclick="navigateToPortofolio2Siklus('siklus-2')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Siklus 2</button>
+            <button onclick="navigateToPortofolio2Siklus('siklus-3')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Siklus 3</button>
+            <button onclick="navigateToPortofolio2Siklus('siklus-4')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Siklus 4</button>
         </div>
     </div>
 </div>
@@ -705,12 +714,14 @@
     <button class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-brand-500 transition inline-flex items-center">
         Seminar Pendidikan Profesi Guru <i class="fas fa-chevron-down ml-1 text-xs"></i>
     </button>
-    <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg glass opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left z-50">
-        <div class="py-1">
-            <button onclick="switchPage('refleksi-semester1')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Semester 1</button>
-            <button onclick="switchPage('refleksi-semester2')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Semester 2</button>
-        </div>
+    <div class="absolute left-0 mt-2 w-56 rounded-md shadow-lg glass opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left z-50">
+    <div class="py-1">
+        <button onclick="switchPage('refleksi-semester1')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Semester 1</button>
+        <button onclick="switchPage('refleksi-semester2')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Semester 2</button>
+        <!-- TAMBAHAN BARU -->
+        <button onclick="switchPage('refleksi-selama-ppg')" class="block w-full text-left px-4 py-2 text-sm hover:bg-brand-500 hover:text-white transition">Refleksi Selama PPG (LK 3)</button>
     </div>
+</div>
 </div>
                     </div>
                 </div>
@@ -774,7 +785,19 @@
     <button onclick="navigateToPortofolio2('analisis-nonmengajar'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Analisis Kegiatan Non Mengajar</button>
     <button onclick="navigateToPortofolio2('analisis-instrumen'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Analisis Instrumen Penilaian</button>
 </div>
+<!-- ===== PORTOFOLIO 2 (BARU) ===== -->
+<div class="pl-3 py-1 text-sm font-bold text-gray-500 uppercase tracking-wider mt-2">Portofolio 2</div>
 
+<div onclick="toggleMobileSubmenu(this)" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800 cursor-pointer flex items-center justify-between">
+    <span>Pilih Siklus</span>
+    <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
+</div>
+
+<div class="mobile-submenu pl-6 hidden">
+    <button onclick="navigateToPortofolio2Siklus('siklus-2'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Siklus 2</button>
+    <button onclick="navigateToPortofolio2Siklus('siklus-3'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Siklus 3</button>
+    <button onclick="navigateToPortofolio2Siklus('siklus-4'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Siklus 4</button>
+</div>
         <!-- ✅ TAMBAHAN: Refleksi Pengalaman Belajar (dengan submenu) -->
         <div class="pl-3 py-1 text-sm font-bold text-gray-500 uppercase tracking-wider mt-2">Refleksi Pengalaman Belajar</div>
 
@@ -786,9 +809,11 @@
 
         <!-- Submenu (default disembunyikan) -->
         <div class="mobile-submenu pl-6 hidden">
-            <button onclick="switchPage('refleksi-semester1'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Semester 1</button>
-            <button onclick="switchPage('refleksi-semester2'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Semester 2</button>
-        </div>
+    <button onclick="switchPage('refleksi-semester1'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Semester 1</button>
+    <button onclick="switchPage('refleksi-semester2'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Semester 2</button>
+    <!-- TAMBAHAN BARU -->
+    <button onclick="switchPage('refleksi-selama-ppg'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium hover:bg-brand-50 dark:hover:bg-gray-800">Refleksi Selama PPG (LK 3)</button>
+</div>
 
     </div>
 </div>
@@ -1032,6 +1057,38 @@
     </div>
 </section>
 
+<!-- ========== HALAMAN PORTOFOLIO 2 (SIKLUS 2, 3, 4) ========== -->
+<section id="portofolio-2" class="page-section max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="py-8 border-b border-gray-200 dark:border-gray-700 mb-8 text-center">
+        <div class="inline-flex justify-center items-center w-16 h-16 rounded-full bg-accent-pink/20 text-accent-pink mb-4 text-3xl animate-float">
+            <i class="fas fa-layer-group"></i>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Portofolio 2</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">Analisis pembelajaran per siklus (Siklus 2, 3, dan 4)</p>
+    </div>
+
+    <!-- Tab Siklus -->
+    <div class="flex flex-wrap justify-center gap-2 mb-4" id="siklus-tabs">
+        <button data-siklus="siklus-2" onclick="setActiveSiklusTab('siklus-2')" class="siklus-tab-btn px-5 py-2 rounded-full text-sm font-semibold transition-colors bg-brand-500 text-white">Siklus 2</button>
+        <button data-siklus="siklus-3" onclick="setActiveSiklusTab('siklus-3')" class="siklus-tab-btn px-5 py-2 rounded-full text-sm font-semibold transition-colors bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Siklus 3</button>
+        <button data-siklus="siklus-4" onclick="setActiveSiklusTab('siklus-4')" class="siklus-tab-btn px-5 py-2 rounded-full text-sm font-semibold transition-colors bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Siklus 4</button>
+    </div>
+
+    <!-- Tab Analisis (sama seperti Portofolio 1) -->
+    <div class="flex flex-wrap justify-center gap-2 mb-8" id="analisis-tabs-2">
+        <button data-tab2="analisis-rpp" onclick="setActiveAnalisisTab2('analisis-rpp')" class="analisis-tab2-btn px-4 py-2 rounded-full text-sm font-semibold transition-colors bg-brand-500 text-white">Analisis RPP</button>
+        <button data-tab2="analisis-materi" onclick="setActiveAnalisisTab2('analisis-materi')" class="analisis-tab2-btn px-4 py-2 rounded-full text-sm font-semibold transition-colors bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Analisis Materi Pembelajaran</button>
+        <button data-tab2="analisis-media" onclick="setActiveAnalisisTab2('analisis-media')" class="analisis-tab2-btn px-4 py-2 rounded-full text-sm font-semibold transition-colors bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Analisis Media Pembelajaran</button>
+        <button data-tab2="analisis-video" onclick="setActiveAnalisisTab2('analisis-video')" class="analisis-tab2-btn px-4 py-2 rounded-full text-sm font-semibold transition-colors bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Analisis Video Pembelajaran</button>
+        <button data-tab2="analisis-instrumen" onclick="setActiveAnalisisTab2('analisis-instrumen')" class="analisis-tab2-btn px-4 py-2 rounded-full text-sm font-semibold transition-colors bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">Analisis Instrumen Penilaian</button>
+    </div>
+
+    <!-- Area Konten -->
+    <div id="analisis-content-2" class="max-w-5xl mx-auto">
+        <!-- Diisi oleh JavaScript -->
+    </div>
+</section>
+
         <!-- ==================== REFLEKSI SEMESTER 1 ==================== -->
 <section id="refleksi-semester1" class="page-section max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="py-8 border-b border-gray-200 dark:border-gray-700 mb-8 text-center">
@@ -1138,6 +1195,238 @@
 
     <div class="space-y-6" id="semester2-topics"></div>
 </section>
+
+<!-- ==================== REFLEKSI SELAMA PPG (LK 3) ==================== -->
+<section id="refleksi-selama-ppg" class="page-section max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="py-8 border-b border-gray-200 dark:border-gray-700 mb-8 text-center">
+        <div class="inline-flex justify-center items-center w-16 h-16 rounded-full bg-accent-yellow/20 text-accent-yellow mb-4 text-3xl animate-float">
+            <i class="fas fa-file-alt"></i>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Refleksi Selama PPG (LK 3)</h2>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">Lembar Kerja 3: Refleksi Pengalaman Belajar Selama Mengikuti PPG</p>
+    </div>
+
+    <!-- Identitas -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden mb-8">
+        <div class="bg-gradient-to-r from-brand-500 to-accent-teal px-6 py-4">
+            <h3 class="text-xl font-bold text-white flex items-center">
+                <i class="fas fa-id-card mr-2"></i> Identitas Mahasiswa
+            </h3>
+        </div>
+        <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 dark:text-gray-300">
+            <div><strong>Nama:</strong> Muhammad Ridho Sani S.Kom</div>
+            <div><strong>NIM:</strong> [Masukkan NIM Anda]</div>
+            <div><strong>Program Studi:</strong> Pendidikan Profesi Guru (PPG) Prajabatan</div>
+            <div><strong>Kelas/ Kelompok:</strong> [Masukkan Kelas/Kelompok]</div>
+            <div><strong>Instansi:</strong> Universitas Negeri Yogyakarta</div>
+            <div><strong>Tanggal:</strong> [Masukkan Tanggal]</div>
+        </div>
+    </div>
+
+    <!-- A. Pandangan Saya tentang Pendidikan di Indonesia -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden mb-8">
+        <div class="bg-gray-100 dark:bg-gray-700/50 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white flex items-center">
+                <i class="fas fa-eye text-brand-500 mr-2"></i> A. Pandangan Saya tentang Pendidikan di Indonesia Setelah Mengikuti PPG
+            </h3>
+        </div>
+        <div class="p-6 md:p-8 space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+            <div>
+                <h4 class="font-bold text-brand-600 dark:text-brand-400 mb-2">1. Gambaran Pendidikan Indonesia yang Saya Harapkan</h4>
+                <p>Setelah mengikuti PPG, saya membayangkan pendidikan Indonesia sebagai sebuah ekosistem yang benar-benar berpihak pada murid (student-centered). Pembelajaran harus bersifat berdiferensiasi, mengakomodasi setiap keunikan, minat, dan gaya belajar murid. Pendidikan ke depan harus menyeimbangkan penguatan karakter (Profil Pelajar Pancasila) dengan kompetensi akademik. Teknologi harus dimanfaatkan secara bermakna (TPACK) sebagai alat bantu, bukan tujuan utama. Guru harus bertransformasi menjadi fasilitator yang menuntun murid menemukan potensinya sendiri, menciptakan lingkungan belajar yang aman, inklusif, dan menyenangkan.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-brand-600 dark:text-brand-400 mb-2">2. Peran Guru dalam Pendidikan Indonesia ke Depan</h4>
+                <p>Guru bukan lagi sekadar penyampai materi (transfer of knowledge), melainkan pembimbing, teladan (ing ngarsa sung tuladha), dan penggerak perubahan. Selama PPG, saya belajar bahwa guru harus mampu menjadi manajer kelas yang baik, psikolog bagi muridnya, serta pembelajar sepanjang hayat. Guru juga harus mampu berkolaborasi dengan sesama pendidik, orang tua, dan masyarakat untuk menciptakan ekosistem pendidikan yang holistik.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-brand-600 dark:text-brand-400 mb-2">3. Harapan dan Komitmen untuk Pendidikan Indonesia</h4>
+                <p>Saya berharap pendidikan Indonesia semakin merata dan berkualitas, tanpa ada kesenjangan antara daerah maju dan tertinggal. Komitmen saya adalah untuk terus mengabdikan diri sebagai guru profesional, berinovasi dalam pembelajaran, dan menjadi agen transformasi digital yang membekali murid dengan keterampilan abad ke-21.</p>
+            </div>
+            <div class="bg-brand-50 dark:bg-gray-900/50 p-4 rounded-xl border border-brand-100 dark:border-gray-700">
+                <h4 class="font-bold text-brand-600 dark:text-brand-400 mb-2">Poin-poin Penting:</h4>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li>Pembelajaran yang berpusat pada murid dan berdiferensiasi.</li>
+                    <li>Integrasi teknologi secara bijak dan bermakna.</li>
+                    <li>Penguatan karakter melalui keteladanan guru.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- B. Refleksi Pengalaman Belajar -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden mb-8">
+        <div class="bg-gray-100 dark:bg-gray-700/50 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white flex items-center">
+                <i class="fas fa-sync-alt text-accent-pink mr-2"></i> B. Refleksi Pengalaman Belajar Selama Mengikuti PPG dan Upaya Menjadi Guru Profesional
+            </h3>
+        </div>
+        <div class="p-6 md:p-8 space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed text-justify">
+            <div>
+                <h4 class="font-bold text-accent-pink mb-2">1. Pengalaman Belajar yang Paling Berkesan</h4>
+                <p>Pengalaman yang paling berkesan bagi saya adalah saat melaksanakan Praktik Pengalaman Lapangan (PPL) Terbimbing di SMK Negeri 5 Yogyakarta. Saya ditantang untuk mengajar mata pelajaran Informatika dan Koding serta Kecerdasan Artifisial (KKA) di jurusan yang tidak bersinggungan langsung dengan IT, seperti jurusan kayu. Momen di mana saya berhasil menarik perhatian mereka dengan analogi dunia perkayuan untuk menjelaskan materi keamanan digital atau HTML/CSS adalah kepuasan tersendiri. Bimbingan dari Guru Pamong dan Dosen Pembimbing juga sangat membuka wawasan saya tentang realitas pendidikan.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-accent-pink mb-2">2. Kompetensi yang Berkembang Selama PPG</h4>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>Pedagogik:</strong> Mampu menyusun perangkat pembelajaran (RPP/Modul Ajar) yang sistematis, menerapkan model PBL dan PjBL, serta melakukan asesmen autentik.</li>
+                    <li><strong>Kepribadian:</strong> Menjadi lebih sabar, reflektif, dan mampu mengelola emosi saat menghadapi dinamika kelas yang beragam.</li>
+                    <li><strong>Sosial:</strong> Meningkatkan kemampuan komunikasi asertif dengan murid, rekan sejawat, dan orang tua.</li>
+                    <li><strong>Profesional:</strong> Menguasai materi Informatika lebih dalam dan mampu mengintegrasikannya dengan teknologi terkini.</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-accent-pink mb-3">3. Upaya yang Akan Saya Lakukan untuk Menjadi Guru Profesional</h4>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left border-collapse">
+                        <thead class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200">
+                            <tr>
+                                <th class="border border-gray-300 dark:border-gray-600 px-3 py-2">No</th>
+                                <th class="border border-gray-300 dark:border-gray-600 px-3 py-2">Aspek</th>
+                                <th class="border border-gray-300 dark:border-gray-600 px-3 py-2">Kondisi Saat Ini</th>
+                                <th class="border border-gray-300 dark:border-gray-600 px-3 py-2">Target yang Ingin Dicapai</th>
+                                <th class="border border-gray-300 dark:border-gray-600 px-3 py-2">Langkah Konkret</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2 text-center">1</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2 font-semibold">Pembelajaran</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2">Masih perlu memperkuat strategi diferensiasi untuk kelas heterogen.</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2">Mampu menerapkan pembelajaran berdiferensiasi secara konsisten.</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2">Memetakan kebutuhan murid di awal semester, menyusun modul ajar yang bervariasi.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2 text-center">2</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2 font-semibold">Asesmen</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2">Masih dominan menggunakan asesmen sumatif.</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2">Seimbang dalam asesmen diagnostik, formatif, dan sumatif.</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2">Membuat instrumen asesmen diagnostik dan rutin memberikan umpan balik formatif.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2 text-center">3</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2 font-semibold">Pengembangan Diri</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2">Belum rutin mengikuti pelatihan mandiri.</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2">Aktif di komunitas belajar (MGMP).</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2">Ikut MGMP, webinar, dan berbagi praktik baik dengan rekan guru.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2 text-center">4</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2 font-semibold">Teknologi Pembelajaran</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2">Belum optimal memanfaatkan LMS secara mandiri.</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2">Mampu memanfaatkan media digital dan LMS secara efektif.</td>
+                                <td class="border border-gray-300 dark:border-gray-600 px-3 py-2">Membuat bahan ajar digital interaktif dan mengelola kelas di LMS (seperti Google Classroom).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- C. Rencana Tindak Lanjut (RTL) -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden mb-8">
+        <div class="bg-gray-100 dark:bg-gray-700/50 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+            <h3 class="text-xl font-bold text-gray-800 dark:text-white flex items-center">
+                <i class="fas fa-tasks text-accent-teal mr-2"></i> C. Rencana Tindak Lanjut (RTL) Saat Memulai Karier sebagai Guru
+            </h3>
+        </div>
+        <div class="p-6 md:p-8 space-y-8">
+            <!-- Rencana 1 -->
+            <div class="relative pl-8 border-l-4 border-brand-500">
+                <div class="absolute -left-3 top-0 w-6 h-6 bg-brand-500 rounded-full border-4 border-white dark:border-gray-800"></div>
+                <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Rencana 1: Menerapkan Asesmen Diagnostik dan Pembelajaran Berdiferensiasi</h4>
+                <ul class="space-y-3 text-gray-700 dark:text-gray-300 text-sm">
+                    <li><strong><i class="fas fa-bullseye text-brand-500 mr-2"></i>Tujuan:</strong> Memahami kebutuhan awal murid dan menyesuaikan pembelajaran sejak dini.</li>
+                    <li><strong><i class="fas fa-list-ol text-brand-500 mr-2"></i>Langkah-langkah:</strong>
+                        <ol class="list-decimal pl-5 mt-1 space-y-1">
+                            <li>Membuat instrumen asesmen diagnostik (kognitif dan non-kognitif).</li>
+                            <li>Mengelompokkan murid berdasarkan hasil asesmen.</li>
+                            <li>Menyusun modul ajar yang berdiferenensiasi.</li>
+                        </ol>
+                    </li>
+                    <li><strong><i class="fas fa-chart-line text-brand-500 mr-2"></i>Indikator keberhasilan:</strong> Terdapat pemetaan kebutuhan murid dan pembelajaran menjadi lebih tepat sasaran.</li>
+                    <li><strong><i class="fas fa-calendar-alt text-brand-500 mr-2"></i>Waktu pelaksanaan:</strong> Bulan pertama masuk sekolah.</li>
+                </ul>
+            </div>
+            
+            <!-- Rencana 2 -->
+            <div class="relative pl-8 border-l-4 border-accent-pink">
+                <div class="absolute -left-3 top-0 w-6 h-6 bg-accent-pink rounded-full border-4 border-white dark:border-gray-800"></div>
+                <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Rencana 2: Mengembangkan Media Pembelajaran Digital Interaktif</h4>
+                <ul class="space-y-3 text-gray-700 dark:text-gray-300 text-sm">
+                    <li><strong><i class="fas fa-bullseye text-accent-pink mr-2"></i>Tujuan:</strong> Meningkatkan keterlibatan dan motivasi murid dalam belajar melalui media berbasis teknologi.</li>
+                    <li><strong><i class="fas fa-list-ol text-accent-pink mr-2"></i>Langkah-langkah:</strong>
+                        <ol class="list-decimal pl-5 mt-1 space-y-1">
+                            <li>Mempelajari platform pembuatan media interaktif (seperti Canva, Genially, atau HTML5).</li>
+                            <li>Membuat bahan ajar digital yang kontekstual (misal: game edukasi ringan).</li>
+                            <li>Menerapkan di kelas dan meminta umpan balik dari murid.</li>
+                        </ol>
+                    </li>
+                    <li><strong><i class="fas fa-chart-line text-accent-pink mr-2"></i>Indikator keberhasilan:</strong> Murid lebih aktif berpartisipasi dan hasil belajar meningkat.</li>
+                    <li><strong><i class="fas fa-calendar-alt text-accent-pink mr-2"></i>Waktu pelaksanaan:</strong> Semester pertama.</li>
+                </ul>
+            </div>
+
+            <!-- Rencana 3 -->
+            <div class="relative pl-8 border-l-4 border-accent-teal">
+                <div class="absolute -left-3 top-0 w-6 h-6 bg-accent-teal rounded-full border-4 border-white dark:border-gray-800"></div>
+                <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-2">Rencana 3: Aktif dalam Komunitas Belajar dan Refleksi Berkelanjutan</h4>
+                <ul class="space-y-3 text-gray-700 dark:text-gray-300 text-sm">
+                    <li><strong><i class="fas fa-bullseye text-accent-teal mr-2"></i>Tujuan:</strong> Terus mengembangkan kompetensi profesional dan memperluas jejaring.</li>
+                    <li><strong><i class="fas fa-list-ol text-accent-teal mr-2"></i>Langkah-langkah:</strong>
+                        <ol class="list-decimal pl-5 mt-1 space-y-1">
+                            <li>Bergabung dan aktif dalam MGMP/komunitas belajar.</li>
+                            <li>Melakukan refleksi jurnal mengajar setelah setiap sesi.</li>
+                            <li>Berbagi praktik baik dengan rekan sejawat (misal melalui platform digital).</li>
+                        </ol>
+                    </li>
+                    <li><strong><i class="fas fa-chart-line text-accent-teal mr-2"></i>Indikator keberhasilan:</strong> Ada catatan refleksi yang konsisten dan keterlibatan aktif dalam komunitas.</li>
+                    <li><strong><i class="fas fa-calendar-alt text-accent-teal mr-2"></i>Waktu pelaksanaan:</strong> Rutin setiap bulan.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- D. Penutup dan Komitmen -->
+    <div class="bg-gradient-to-br from-brand-500 to-brand-900 rounded-2xl shadow-lg p-8 text-white relative overflow-hidden mb-8">
+        <i class="fas fa-quote-right absolute -bottom-4 -right-4 text-9xl opacity-20"></i>
+        <h3 class="text-2xl font-bold mb-4 relative z-10"><i class="fas fa-heart mr-2 text-accent-pink"></i> D. Penutup dan Komitmen</h3>
+        <p class="leading-relaxed text-justify relative z-10">
+            Perjalanan mengikuti PPG Prajabatan di Universitas Negeri Yogyakarta telah mengubah cara pandang saya secara fundamental tentang dunia pendidikan. Saya berkomitmen untuk tidak berhenti belajar, terus berbenah diri, dan mengaplikasikan seluruh ilmu yang saya peroleh untuk kemajuan pendidikan di Indonesia. Saya bercita-cita menjadi guru yang tidak hanya cerdas secara intelektual, tetapi juga matang secara emosional dan spiritual. Dengan bekal pengalaman PPL dan bimbingan dari para dosen serta guru pamong, saya siap mendedikasikan diri saya untuk mencerdaskan generasi bangsa, menjadikan kelas sebagai tempat yang aman dan menyenangkan untuk bertumbuh, serta menjadi agen perubahan di lingkungan pendidikan tempat saya mengabdi.
+        </p>
+    </div>
+
+        <!-- Lampiran PDF LK 3 -->
+    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+        <div class="bg-gradient-to-r from-brand-500 to-accent-teal px-6 py-4">
+            <h4 class="text-xl font-bold text-white flex items-center">
+                <i class="fas fa-file-pdf mr-2"></i> Lampiran Dokumen LK 3
+            </h4>
+        </div>
+        <div class="p-6">
+            <div class="glass p-4 rounded-xl border-l-4 border-brand-500">
+                <div class="flex items-center mb-3 text-brand-500">
+                    <i class="fas fa-file-pdf text-3xl mr-3"></i>
+                    <div>
+                        <h5 class="font-semibold">LK 3 - Refleksi Selama PPG</h5>
+                        <p class="text-xs text-gray-500">PDF - Lembar Kerja 3</p>
+                    </div>
+                </div>
+                <div class="flex space-x-2 mt-3">
+                    <button onclick="previewDoc('1cb-sZaSX8YM7U-b4b8vbYYWf9_RAvvC-')" class="flex-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-sm py-2 rounded-lg transition">
+                        <i class="fas fa-eye mr-1"></i> Preview
+                    </button>
+                    <button onclick="downloadPDF('1cb-sZaSX8YM7U-b4b8vbYYWf9_RAvvC-')" class="flex-1 bg-brand-500 hover:bg-brand-600 text-white text-sm py-2 rounded-lg transition">
+                        <i class="fas fa-download mr-1"></i> Unduh
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
     </main>
 
     <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 pt-12 pb-8 mt-12 transition-colors duration-300">
@@ -1219,7 +1508,12 @@
 if (document.getElementById('analisis-content')) {
     setActiveAnalisisTab('analisis-rpp');
 }
-        });
+// ⬇️ TAMBAHKAN BARIS INI
+    if (document.getElementById('analisis-content-2')) {
+        setActiveSiklusTab('siklus-2');
+    }
+});
+    
 
         function createBinaryRain() {
             const container = document.getElementById('binary-rain');
@@ -1334,6 +1628,10 @@ if (document.getElementById('analisis-content')) {
             if (pageId === 'portofolio-semester2') {
                 setActiveAnalisisTab(activeAnalisisTab);
             }
+            // ⬇️ TAMBAHKAN BARIS INI
+            if (pageId === 'portofolio-2') {
+                setActiveSiklusTab(activeSiklusTab);
+            }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
         oldSection.addEventListener('animationend', onEnd);
@@ -1341,6 +1639,10 @@ if (document.getElementById('analisis-content')) {
         document.getElementById(pageId).classList.add('active');
         if (pageId === 'portofolio-semester2') {
             setActiveAnalisisTab(activeAnalisisTab);
+        }
+        // ⬇️ TAMBAHKAN BARIS INI
+        if (pageId === 'portofolio-2') {
+            setActiveSiklusTab(activeSiklusTab);
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -2352,7 +2654,7 @@ const portofolio2Data = {
         title: 'Analisis Video Pembelajaran',
         type: 'youtube',
         fileId: 'ISI_ID_FILE_DRIVE_ANDA', // ID file video di Google Drive
-        youtubeUrl: 'https://www.youtube.com/watch?v=Z7d77opBYZc', // ← Ganti dengan URL YouTube Anda // Bisa juga hanya ID videonya saja, contoh: 'dQw4w9WgXcQ'
+        youtubeUrl:  'https://www.youtube.com/watch?v=Z7d77opBYZc', // ← Ganti dengan URL YouTube Anda // Bisa juga hanya ID videonya saja, contoh: 'dQw4w9WgXcQ'
         analysis: 'Tuliskan analisis video pembelajaran di sini...',
         downloadName: 'Video Pembelajaran'
     },
@@ -2494,6 +2796,377 @@ function setActiveAnalisisTab(tabId) {
     });
     renderAnalisisContent(tabId);
 }
+// ================== PORTOFOLIO 2 — DATA PER SIKLUS ==================
+const portofolio2SiklusData = {
+    'siklus-2': {
+        'analisis-rpp': {
+            title: 'Analisis RPP — Siklus 2',
+            type: 'pdf',
+            fileId: '1TGQ_KRCg469qiHsV23KVpSPfmoaRHH2R',
+            isHTML: true,
+            analysis:  `
+    <div class="space-y-6">
+        <!-- 1. Karakteristik Umum RPP -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <h4 class="text-lg font-bold mb-3 flex items-center">
+                <i class="fas fa-file-alt text-blue-500 mr-2"></i> Karakteristik Umum RPP
+            </h4>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                Rencana Pelaksanaan Pembelajaran ini dirancang untuk mata pelajaran Informatika kelas X SMK Negeri 5 Yogyakarta dengan fokus pada materi <strong>Struktur Data dan Algoritma Standar</strong> dalam konteks Berpikir Komputasional. RPP ini menunjukkan perencanaan yang matang dengan memperhatikan karakteristik peserta didik, kesenjangan kemampuan, serta kebutuhan literasi digital yang masih perlu diperkuat. Dokumen ini disusun dengan pendekatan yang sangat terstruktur dan komprehensif, mencakup seluruh komponen pembelajaran mulai dari identifikasi hingga program tindak lanjut.
+            </p>
+        </div>
+
+        <!-- 2. Kekuatan Utama RPP -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <h4 class="text-lg font-bold mb-4 flex items-center">
+                <i class="fas fa-thumbs-up text-green-500 mr-2"></i> Kekuatan Utama RPP
+            </h4>
+            <div class="space-y-4">
+                <div class="pl-4 border-l-4 border-green-300 dark:border-green-700">
+                    <h5 class="font-semibold text-md mb-1 flex items-center">
+                        <i class="fas fa-lightbulb text-yellow-500 mr-2"></i> Pendekatan Kontekstual dan Analogi yang Kuat
+                    </h5>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Salah satu kekuatan utama RPP ini terletak pada penggunaan analogi kehidupan sehari-hari yang sangat relevan dan mudah dipahami oleh peserta didik. Materi struktur data dijelaskan melalui analogi <em>rak sepatu</em> untuk array, <em>tumpukan piring</em> untuk stack, <em>antrian kasir</em> untuk queue, dan <em>daftar belanja</em> untuk list. Demikian pula algoritma pencarian dan pengurutan diilustrasikan dengan contoh konkret seperti mencari kunci di tas, membuka kamus, atau mengurutkan barisan siswa berdasarkan tinggi badan. Pendekatan ini sangat efektif untuk menjembatani konsep abstrak pemrograman dengan pengalaman nyata peserta didik, sebagaimana disebutkan dalam RPP bahwa peserta didik sebenarnya telah menerapkan berpikir komputasional secara tidak sadar dalam aktivitas sehari-hari.
+                    </p>
+                </div>
+                <div class="pl-4 border-l-4 border-blue-300 dark:border-blue-700">
+                    <h5 class="font-semibold text-md mb-1 flex items-center">
+                        <i class="fas fa-users-cog text-blue-500 mr-2"></i> Diferensiasi Pembelajaran yang Terencana
+                    </h5>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        RPP ini menunjukkan kesadaran yang tinggi terhadap keberagaman kemampuan peserta didik. Strategi diferensiasi diimplementasikan melalui pembentukan kelompok heterogen yang menggabungkan peserta didik dengan kemampuan awal berbeda, serta menyediakan skema tutor sebaya bagi yang memerlukan pendampingan. Hal ini sangat penting mengingat RPP mengidentifikasi adanya kesenjangan kemampuan di mana sebagian peserta didik mampu mengikuti instruksi dengan cepat sementara sebagian lain memerlukan pendampingan lebih intensif. Guru juga direncanakan memberikan scaffolding bertahap dengan perhatian lebih pada kelompok yang membutuhkan pendampingan intensif, menunjukkan pendekatan pembelajaran yang responsif terhadap kebutuhan individu.
+                    </p>
+                </div>
+                <div class="pl-4 border-l-4 border-purple-300 dark:border-purple-700">
+                    <h5 class="font-semibold text-md mb-1 flex items-center">
+                        <i class="fas fa-layer-group text-purple-500 mr-2"></i> Program Pengayaan dan Remedial yang Komprehensif
+                    </h5>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Keistimewaan lain dari RPP ini adalah tersedianya program pengayaan dan remedial yang sangat detail dan terstruktur. Program pengayaan dirancang untuk mengasah kemampuan berpikir komputasional level lebih tinggi seperti analisis efisiensi algoritma, modifikasi algoritma, dan implementasi struktur data pada kasus multidimensional. Sementara program remedial disusun dengan pendekatan yang lebih sederhana dan visual, menggunakan bantuan gambar dan ilustrasi untuk memperkuat pemahaman dasar. Kedua program ini dilengkapi dengan kunci jawaban dan panduan bagi guru, menunjukkan kesiapan implementasi yang matang.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Kualitas Materi Pembelajaran -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <h4 class="text-lg font-bold mb-4 flex items-center">
+                <i class="fas fa-book-open text-indigo-500 mr-2"></i> Kualitas Materi Pembelajaran
+            </h4>
+            <div class="space-y-4">
+                <div class="pl-4 border-l-4 border-indigo-300 dark:border-indigo-700">
+                    <h5 class="font-semibold text-md mb-1"><i class="fas fa-check-circle text-green-500 mr-2"></i>Kejelasan dan Kedalaman Materi</h5>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Materi pembelajaran disajikan dengan sangat jelas dan mendalam, dimulai dari pengenalan mengapa materi ini penting dipelajari, dilanjutkan dengan penjelasan konsep per konsep menggunakan bahasa yang mudah dipahami. Setiap struktur data dan algoritma dijelaskan dengan tiga pendekatan: penjelasan sederhana, analogi detail, dan contoh nyata dalam kehidupan sehari-hari. Hal ini menciptakan pemahaman yang bertahap dan komprehensif, dari tingkat dasar hingga aplikasi praktis.
+                    </p>
+                </div>
+                <div class="pl-4 border-l-4 border-pink-300 dark:border-pink-700">
+                    <h5 class="font-semibold text-md mb-1"><i class="fas fa-quote-right text-pink-500 mr-2"></i>Aspek Ilmiah dan Referensi Terkini</h5>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        RPP ini didukung oleh referensi ilmiah yang relevan dan terkini, mencakup jurnal tentang pengembangan media simulasi, pengenalan algoritma dan pemrograman dasar, serta analisis perbandingan algoritma pencarian dan pengurutan. Penggunaan referensi ini menunjukkan bahwa materi pembelajaran tidak hanya berdasarkan intuisi pedagogis tetapi juga didasarkan pada penelitian dan praktik terbaik dalam pembelajaran informatika di tingkat SMK.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Kelemahan dan Area Perbaikan -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <h4 class="text-lg font-bold mb-4 flex items-center">
+                <i class="fas fa-exclamation-triangle text-yellow-600 mr-2"></i> Kelemahan dan Area Perbaikan
+            </h4>
+            <div class="space-y-4">
+                <div class="pl-4 border-l-4 border-red-300 dark:border-red-700">
+                    <h5 class="font-semibold text-md mb-1"><i class="fas fa-wifi text-red-500 mr-2"></i>Ketergantungan pada Infrastruktur Digital</h5>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        RPP ini sangat bergantung pada ketersediaan infrastruktur digital seperti komputer, koneksi internet, Google Classroom, dan tautan-tautan media pembelajaran daring. Meskipun telah disediakan skema cadangan berupa LKPD cetak, ketergantungan ini tetap menjadi risiko mengingat identifikasi awal menyebutkan bahwa koneksi tidak selalu stabil. Sekolah dengan infrastruktur digital terbatas mungkin kesulitan mengimplementasikan RPP ini secara optimal.
+                    </p>
+                </div>
+                <div class="pl-4 border-l-4 border-orange-300 dark:border-orange-700">
+                    <h5 class="font-semibold text-md mb-1"><i class="fas fa-clock text-orange-500 mr-2"></i>Beban Waktu yang Padat</h5>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Alokasi waktu 70 menit untuk kegiatan inti terasa sangat padat mengingat banyaknya aktivitas yang harus dilakukan: asesmen diagnostik, pemberian materi, pembentukan kelompok, pengerjaan LKPD, pengumpulan hasil, dan evaluasi. Kegiatan pengayaan dan remedial juga memerlukan waktu tambahan di luar jam pembelajaran reguler, yang mungkin menjadi tantangan dalam implementasi di lapangan.
+                    </p>
+                </div>
+                <div class="pl-4 border-l-4 border-cyan-300 dark:border-cyan-700">
+                    <h5 class="font-semibold text-md mb-1"><i class="fas fa-code text-cyan-500 mr-2"></i>Kurangnya Penekanan pada Praktik Pemrograman Langsung</h5>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Meskipun RPP ini sangat baik dalam menjelaskan konsep struktur data dan algoritma secara konseptual, tidak ada indikasi yang jelas tentang praktik pemrograman langsung atau implementasi kode. Padahal, tujuan akhir dari pembelajaran struktur data dan algoritma adalah kemampuan mengimplementasikannya dalam bahasa pemrograman. RPP ini lebih berorientasi pada pemahaman konseptual dan simulasi manual daripada keterampilan coding praktis.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Analisis Asesmen -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <h4 class="text-lg font-bold mb-3 flex items-center">
+                <i class="fas fa-clipboard-list text-teal-500 mr-2"></i> Analisis Asesmen
+            </h4>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                <strong>Kekuatan Sistem Penilaian:</strong> Sistem penilaian dalam RPP ini sangat terstruktur dengan rubrik penilaian yang jelas untuk setiap indikator. Pembagian skor maksimal untuk setiap bagian (Struktur Data 20 poin, Pencarian 30 poin, Pengurutan 50 poin) menunjukkan penekanan yang lebih besar pada pemahaman algoritma dibandingkan struktur data, yang sesuai dengan tingkat kesulitan relatif kedua topik tersebut. Rubrik penilaian juga memberikan kriteria yang spesifik untuk setiap tingkat pencapaian, memungkinkan penilaian yang objektif dan konsisten.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mt-2">
+                <strong>Aspek Afektif dan Psikomotor:</strong> RPP ini juga mencakup penilaian afektif (observasi kemandirian, kolaborasi, dan partisipasi) serta psikomotor (unjuk kerja dalam menyusun klasifikasi dan algoritma). Namun, deskripsi penilaian afektif dan psikomotor masih sangat umum dan tidak dilengkapi dengan instrumen pengukuran yang spesifik seperti lembar observasi terstruktur atau rubrik penilaian unjuk kerja yang detail.
+            </p>
+        </div>
+
+        <!-- 6. Relevansi dengan Profil Lulusan dan Capaian Pembelajaran -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <h4 class="text-lg font-bold mb-3 flex items-center">
+                <i class="fas fa-graduation-cap text-indigo-600 mr-2"></i> Relevansi dengan Profil Lulusan dan Capaian Pembelajaran
+            </h4>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                RPP ini selaras dengan dimensi Profil Pelajar Pancasila yang mencakup ketakwaan, penalaran kritis, kreativitas, komunikasi, kolaborasi, dan kemandirian. Kegiatan pembelajaran yang dirancang, terutama diskusi kelompok dan pemecahan masalah kontekstual, mendukung pengembangan dimensi-dimensi tersebut. Capaian pembelajaran yang dirumuskan juga spesifik dan terukur, memungkinkan evaluasi yang jelas terhadap ketercapaian tujuan pembelajaran.
+            </p>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed mt-2">
+                <strong>Keterkaitan Lintas Disiplin:</strong> RPP ini menunjukkan keterkaitan yang baik dengan mata pelajaran Matematika, khususnya dalam aspek logika dan pola berpikir sistematis. Hal ini penting karena struktur data dan algoritma memiliki dasar matematis yang kuat, dan penguatan dari guru matematika dapat memperdalam pemahaman peserta didik. Namun, keterkaitan dengan mata pelajaran lain seperti Bahasa Indonesia (untuk literasi digital dan pemahaman instruksi) atau mata pelajaran produktif lainnya di SMK masih bisa dikembangkan lebih lanjut.
+            </p>
+        </div>
+
+        <!-- 7. Rekomendasi Perbaikan -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <h4 class="text-lg font-bold mb-3 flex items-center">
+                <i class="fas fa-tasks text-blue-600 mr-2"></i> Rekomendasi Perbaikan
+            </h4>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+                <li>Perlu ditambahkan aktivitas praktik pemrograman sederhana, misalnya menggunakan bahasa pemrograman visual atau berbasis blok, untuk mengimplementasikan konsep struktur data dan algoritma yang telah dipelajari.</li>
+                <li>Instrumen penilaian afektif dan psikomotor perlu dikembangkan lebih detail dengan rubrik yang spesifik dan terukur.</li>
+                <li>Perlu dipertimbangkan fleksibilitas waktu dengan kemungkinan membagi materi menjadi lebih banyak pertemuan atau menyediakan materi pra-pembelajaran yang dapat dipelajari peserta didik secara mandiri.</li>
+                <li>Meskipun telah disediakan tautan ke media pembelajaran, LKPD, dan kuis, perlu dicantumkan petunjuk teknis penggunaan media tersebut serta skenario jika terjadi kendala akses yang lebih komprehensif.</li>
+            </ul>
+        </div>
+
+        <!-- 8. Kesimpulan -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <h4 class="text-lg font-bold mb-3 flex items-center">
+                <i class="fas fa-check-double text-green-600 mr-2"></i> Kesimpulan
+            </h4>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                Secara keseluruhan, RPP ini merupakan dokumen perencanaan pembelajaran yang sangat baik dengan pendekatan kontekstual yang kuat, strategi diferensiasi yang terencana, serta program pengayaan dan remedial yang komprehensif. Materi pembelajaran disajikan dengan jelas dan didukung oleh referensi ilmiah yang relevan. Meskipun terdapat beberapa kelemahan seperti ketergantungan pada infrastruktur digital dan kurangnya praktik pemrograman langsung, secara keseluruhan RPP ini layak diimplementasikan dengan beberapa penyesuaian sesuai kondisi lapangan. RPP ini mencerminkan pemahaman yang mendalam tentang karakteristik peserta didik SMK dan kebutuhan pembelajaran abad ke-21, serta menunjukkan komitmen untuk menciptakan pengalaman belajar yang bermakna dan berpusat pada peserta didik.
+            </p>
+        </div>
+    </div>`,
+    downloadName: 'RPP Portofolio 1'
+},
+    'analisis-materi': {
+    title: 'Analisis Materi Pembelajaran',
+    type: 'pdf',
+    fileId: '1rn_0JiRVX5hlYt1UdDrcmroZxuCK2aHy',
+    isHTML: true,
+    analysis: `
+    <div class="space-y-6">
+        <!-- 1. Gambaran Umum Materi -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <h4 class="text-lg font-bold mb-3 flex items-center">
+                <i class="fas fa-book-reader text-blue-500 mr-2"></i> Gambaran Umum Materi
+            </h4>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                Materi ajar ini merupakan pengantar <strong>Struktur Data dan Algoritma</strong> untuk siswa Kelas X SMK. Cakupan awalnya meliputi Array, Stack, Queue, dan List, lalu dilanjutkan dengan algoritma pencarian <em>Linear Search</em> dan <em>Binary Search</em> serta algoritma pengurutan <em>Bubble Sort</em> dan <em>Selection Sort</em>. Pendekatan yang digunakan adalah penjelasan sederhana ditambah analogi kehidupan sehari-hari, sehingga konsep abstrak seperti LIFO, FIFO, indeks array, dan pencarian bagi dua menjadi lebih mudah dibayangkan. Namun, sebagai bahan ajar yang utuh, materi ini masih perlu dilengkapi agar tidak hanya bersifat pengenalan konsep, tetapi juga mampu melatih keterampilan berpikir komputasional dan praktik pemrograman siswa.
+            </p>
+        </div>
+
+        <!-- 2. Kelebihan Materi -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <h4 class="text-lg font-bold mb-4 flex items-center">
+                <i class="fas fa-thumbs-up text-green-500 mr-2"></i> Kelebihan Materi
+            </h4>
+            <div class="space-y-4">
+                <div class="pl-4 border-l-4 border-green-300 dark:border-green-700">
+                    <h5 class="font-semibold text-md mb-1 flex items-center">
+                        <i class="fas fa-lightbulb text-yellow-500 mr-2"></i> Analogi Kuat dan Dekat dengan Siswa
+                    </h5>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Kelebihan utama materi ini terletak pada gaya bahasanya yang ringan, komunikatif, dan dekat dengan dunia siswa. Analogi seperti rak sepatu bernomor untuk Array, tumpukan piring untuk Stack, antrian kasir Indomaret untuk Queue, daftar belanja ibu untuk List, mencari kunci motor di tas ransel untuk Linear Search, mencari kata di kamus untuk Binary Search, barisan siswa untuk Bubble Sort, dan kartu remi untuk Selection Sort sangat membantu pemahaman awal.
+                    </p>
+                </div>
+                <div class="pl-4 border-l-4 border-blue-300 dark:border-blue-700">
+                    <h5 class="font-semibold text-md mb-1 flex items-center">
+                        <i class="fas fa-link text-blue-500 mr-2"></i> Relevan dengan Kehidupan Sehari-hari
+                    </h5>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Contoh-contoh nyata seperti daftar kontak HP, playlist lagu, antrian BPJS, dan skor game membuat materi terasa relevan. Urutan penyajiannya logis: dimulai dari cara menata data, lalu cara mencari, kemudian cara mengurutkan.
+                    </p>
+                </div>
+                <div class="pl-4 border-l-4 border-purple-300 dark:border-purple-700">
+                    <h5 class="font-semibold text-md mb-1 flex items-center">
+                        <i class="fas fa-quote-right text-purple-500 mr-2"></i> Didukung Daftar Pustaka
+                    </h5>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Adanya daftar pustaka menunjukkan bahwa materi ini disusun dengan rujukan akademis, meskipun belum dikutip secara langsung di dalam teks.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Kekurangan Materi -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <h4 class="text-lg font-bold mb-4 flex items-center">
+                <i class="fas fa-exclamation-triangle text-yellow-600 mr-2"></i> Kekurangan Materi
+            </h4>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+                <li>Tidak ada capaian pembelajaran, tujuan pembelajaran, alokasi waktu, peta konsep, prasyarat, glosarium, rangkuman, refleksi, maupun asesmen.</li>
+                <li>Belum menyertakan pseudocode, flowchart, atau contoh kode program dalam bahasa pemrograman tertentu, padahal siswa SMK perlu menghubungkan konsep dengan implementasi.</li>
+                <li>Tidak ada analisis kompleksitas waktu dan ruang, sehingga siswa tidak tahu mengapa Binary Search lebih cepat daripada Linear Search atau mengapa Bubble Sort kurang efisien.</li>
+                <li>Latihan soal, kuis, studi kasus, dan proyek mini belum tersedia.</li>
+                <li>Terdapat ketidakkonsistenan dan kesalahan teknis, misalnya pada contoh Binary Search yang awalnya mencari kata “Mangga” tetapi kemudian berubah menjadi “Semangka”, contoh playlist Spotify yang sebenarnya lebih tepat disebut antrian lagu, serta penyamaan List dengan array dinamis tanpa menjelaskan perbedaan List sebagai ADT dan linked list sebagai implementasi.</li>
+                <li>Referensi pada halaman 5 hanya memuat poin a–f, sedangkan halaman 6 langsung memuat poin 9, sehingga poin 7 dan 8 hilang.</li>
+                <li>Terdapat karakter encoding aneh di awal halaman yang perlu dibersihkan.</li>
+                <li>Materi pengurutan baru membahas Bubble Sort dan Selection Sort, padahal daftar pustaka menyebut Quick Sort; Insertion Sort, Merge Sort, dan Quick Sort belum disinggung.</li>
+                <li>Struktur data lain seperti linked list, tree, dan graph disebut di daftar pustaka tetapi tidak dibahas di isi.</li>
+            </ul>
+        </div>
+
+        <!-- 4. Rekomendasi Perbaikan -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <h4 class="text-lg font-bold mb-4 flex items-center">
+                <i class="fas fa-tasks text-blue-600 mr-2"></i> Rekomendasi Perbaikan
+            </h4>
+            <ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300 leading-relaxed">
+                <li><strong>Perbaikan teknis:</strong> membersihkan karakter encoding, memperbaiki contoh Binary Search agar target konsisten, memperjelas perbedaan Array, List, dan Linked List, serta melengkapi nomor referensi yang hilang.</li>
+                <li><strong>Perbaikan pedagogis:</strong> menambahkan capaian pembelajaran, tujuan pembelajaran, alokasi waktu, peta konsep, glosarium, dan kata kunci.</li>
+                <li><strong>Perbaikan konten:</strong> menambahkan pseudocode, flowchart, dan implementasi dalam Python, C++, atau Java; menambahkan tabel perbandingan operasi dan kompleksitas; serta menambahkan algoritma Insertion Sort, Merge Sort, dan Quick Sort sebagai pengayaan.</li>
+                <li><strong>Perbaikan asesmen:</strong> menambahkan latihan trace algoritma, soal pilihan ganda, soal esai, studi kasus, proyek mini seperti aplikasi antrian sederhana, fitur undo dengan Stack, pencarian data siswa, dan pengurutan nilai.</li>
+                <li>Menambahkan rubrik penilaian, kunci jawaban, serta aktivitas <em>unplugged</em> dan <em>coding practice</em>.</li>
+            </ul>
+        </div>
+
+        <!-- 5. Tambahan yang Diperlukan -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <h4 class="text-lg font-bold mb-4 flex items-center">
+                <i class="fas fa-plus-circle text-indigo-500 mr-2"></i> Tambahan yang Diperlukan
+            </h4>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                Agar materi ini benar-benar siap digunakan, perlu ditambahkan bagian <strong>“Capaian Pembelajaran dan Tujuan”, “Peta Konsep”, “Prasyarat”, “Kata Kunci”, “Apersepsi”, “Aktivitas Pembelajaran”, “Latihan Soal”, “Proyek Mini”, “Rangkuman”, “Refleksi”, “Glosarium”, “Daftar Pustaka Lengkap”, dan “Kunci Jawaban serta Rubrik”</strong>. Materi juga sebaiknya dilengkapi diagram visual untuk Array, Stack, Queue, Binary Search, Bubble Sort, dan Selection Sort. Untuk memperkuat konteks SMK, contoh dapat diarahkan pada bidang keahlian tertentu, misalnya antrian pasien untuk jurusan kesehatan, antrian print untuk jurusan TI, atau pencarian spare part untuk jurusan otomotif.
+            </p>
+        </div>
+
+        <!-- 6. Kesimpulan -->
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <h4 class="text-lg font-bold mb-3 flex items-center">
+                <i class="fas fa-check-double text-green-600 mr-2"></i> Kesimpulan
+            </h4>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                Secara keseluruhan, materi ini sudah memiliki fondasi yang kuat sebagai bahan pengantar karena analoginya kaya dan bahasanya mudah dipahami. Namun, agar layak menjadi materi ajar lengkap untuk Kelas X SMK, diperlukan perbaikan pada aspek kelengkapan kurikulum, akurasi teknis, visualisasi, praktik pemrograman, dan asesmen. Jika rekomendasi tersebut diterapkan, materi ini berpotensi menjadi modul yang tidak hanya informatif, tetapi juga aktif, aplikatif, dan menyenangkan bagi siswa.
+            </p>
+        </div>
+    </div>`
+        },
+        'analisis-materi': {
+            title: 'Analisis Materi — Siklus 2',
+            type: 'pdf',
+            fileId: '1kxXGCApSzoxuBezTyg6VYt43IXeAFIfh',
+            isHTML: true,
+            analysis: `<p class="text-gray-700 dark:text-gray-300">Tuliskan analisis materi Siklus 2...</p>`
+        },
+        'analisis-media': {
+            title: 'Analisis Media — Siklus 2',
+            type: 'website',
+            websites: [
+                { label: 'Media Siklus 2', url: 'https://muhammadridhosani2002-sketch.github.io/algoritma.dan.flowchart/Media-Pembelajaran-Algoritma-dan-data.html  ' }
+            ],
+            isHTML: true,
+            analysis: `<p class="text-gray-700 dark:text-gray-300">Tuliskan analisis media Siklus 2...</p>`
+        },
+        'analisis-video': {
+            title: 'Analisis Video — Siklus 2',
+            type: 'youtube',
+            youtubeUrl: 'https://www.youtube.com/watch?v=Z7d77opBYZc',
+            analysis: 'Tuliskan analisis video Siklus 2...'
+        },
+        'analisis-instrumen': {
+            title: 'Analisis Instrumen Penilaian — Siklus 2',
+            type: 'pdf',
+            fileId: '1YtwM6dIsnoPzypsYrAMZU-qe0eTXJ4o1',
+            isHTML: true,
+            analysis: `<p class="text-gray-700 dark:text-gray-300">Tuliskan analisis instrumen Siklus 2...</p>`
+        }
+    },
+
+    'siklus-3': {
+        // ⬇️ Salin struktur di atas (analisis-rpp, analisis-materi, ...)
+        //    lalu ganti isi kontennya untuk Siklus 3
+        'analisis-rpp': {
+            title: 'Analisis RPP — Siklus 3',
+            type: 'pdf',
+            fileId: '1lyN-u38ApYDVYNmBSHUYx7JCXt166nYt',
+            isHTML: true,
+            analysis: `<div class="space-y-4">
+                <p class="text-gray-700 dark:text-gray-300">Tuliskan analisis RPP Siklus 2 di sini...</p>
+            </div>`
+        },
+        'analisis-materi': {
+            title: 'Analisis Materi — Siklus 3',
+            type: 'pdf',
+            fileId: '1-yEPfIeXj9nLHZLF8WB-S3bsG7QxSMHg',
+            isHTML: true,
+            analysis: `<p class="text-gray-700 dark:text-gray-300">Tuliskan analisis materi Siklus 2...</p>`
+        },
+        'analisis-media': {
+            title: 'Analisis Media — Siklus 3',
+            type: 'website',
+            websites: [
+                { label: 'Media Siklus 3', url: 'https://muhammadridhosani2002-sketch.github.io/berpikirkomputasional/materiajar.html' }
+            ],
+            isHTML: true,
+            analysis: `<p class="text-gray-700 dark:text-gray-300">Tuliskan analisis media Siklus 3...</p>`
+        },
+        'analisis-video': {
+            title: 'Analisis Video — Siklus 3',
+            type: 'youtube',
+            youtubeUrl: 'https://www.youtube.com/watch?v=PSVNjhT1A3U',
+            analysis: 'Tuliskan analisis video Siklus 3...'
+        },
+        'analisis-instrumen': {
+            title: 'Analisis Instrumen Penilaian — Siklus 3',
+            type: 'pdf',
+            fileId: '1qyRzUdpShCFUuzTWtosuK0IgcHt4lsYT',
+            isHTML: true,
+            analysis: `<p class="text-gray-700 dark:text-gray-300">Tuliskan analisis instrumen Siklus 3...</p>`
+        }
+    },
+
+    'siklus-4': {
+        // ⬇️ Sama, sesuaikan konten untuk Siklus 4
+'analisis-rpp': {
+            title: 'Analisis RPP — Siklus 4',
+            type: 'pdf',
+            fileId: '17fJfA9S7dMl7diF0zjShtN-r6qowXQxk',
+            isHTML: true,
+            analysis: `<div class="space-y-4">
+                <p class="text-gray-700 dark:text-gray-300">Tuliskan analisis RPP Siklus 4 di sini...</p>
+            </div>`
+        },
+        'analisis-materi': {
+            title: 'Analisis Materi — Siklus 4',
+            type: 'pdf',
+            fileId: '1-yEPfIeXj9nLHZLF8WB-S3bsG7QxSMHg',
+            isHTML: true,
+            analysis: `<p class="text-gray-700 dark:text-gray-300">Tuliskan analisis materi Siklus 4...</p>`
+        },
+        'analisis-media': {
+            title: 'Analisis Media — Siklus 4',
+            type: 'website',
+            websites: [
+                { label: 'Media Siklus 4', url: 'https://muhammadridhosani2002-sketch.github.io/xkulita-kka-sistem-komputer/' }
+            ],
+            isHTML: true,
+            analysis: `<p class="text-gray-700 dark:text-gray-300">Tuliskan analisis media Siklus 4...</p>`
+        },
+        'analisis-video': {
+            title: 'Analisis Video — Siklus 4',
+            type: 'youtube',
+            youtubeUrl: 'https://www.youtube.com/watch?v=eqrDJ85FXNo',
+            analysis: 'Tuliskan analisis video Siklus 4...'
+        },
+        'analisis-instrumen': {
+            title: 'Analisis Instrumen Penilaian — Siklus 4',
+            type: 'pdf',
+            fileId: '1k1IOIBvAayvDlG803rHSlDcG3OJVZqBV',
+            isHTML: true,
+            analysis: `<p class="text-gray-700 dark:text-gray-300">Tuliskan analisis instrumen Siklus 4...</p>`
+        }
+    }
+};
 
 function renderAnalisisContent(tabId) {
     const container = document.getElementById('analisis-content');
@@ -2644,6 +3317,160 @@ function navigateToPortofolio2(analisisId) {
     setTimeout(() => {
         setActiveAnalisisTab(analisisId);
     }, 300); // sesuaikan dengan durasi fade
+}
+
+// ================== STATE & FUNGSI PORTOFOLIO 2 ==================
+let activeSiklusTab = 'siklus-2';
+let activeAnalisisTab2 = 'analisis-rpp';
+
+function setActiveSiklusTab(siklusId) {
+    activeSiklusTab = siklusId;
+
+    // Update tombol siklus
+    document.querySelectorAll('.siklus-tab-btn').forEach(btn => {
+        if (btn.dataset.siklus === siklusId) {
+            btn.classList.add('bg-brand-500', 'text-white');
+            btn.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+        } else {
+            btn.classList.remove('bg-brand-500', 'text-white');
+            btn.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+        }
+    });
+
+    renderAnalisisContent2();
+}
+
+function setActiveAnalisisTab2(tabId) {
+    activeAnalisisTab2 = tabId;
+
+    // Update tombol analisis
+    document.querySelectorAll('.analisis-tab2-btn').forEach(btn => {
+        if (btn.dataset.tab2 === tabId) {
+            btn.classList.add('bg-brand-500', 'text-white');
+            btn.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+        } else {
+            btn.classList.remove('bg-brand-500', 'text-white');
+            btn.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+        }
+    });
+
+    renderAnalisisContent2();
+}
+
+function renderAnalisisContent2() {
+    const container = document.getElementById('analisis-content-2');
+    if (!container) return;
+
+    const siklusData = portofolio2SiklusData[activeSiklusTab];
+    const data = siklusData ? siklusData[activeAnalisisTab2] : null;
+
+    if (!data) {
+        container.innerHTML = '<p class="text-center text-gray-500 py-10">Belum ada data untuk tab ini.</p>';
+        return;
+    }
+
+    // Gunakan renderer yang sama dengan Portofolio 1
+    // (kita reuse logika switch-case, tapi render ke container berbeda)
+    renderAnalisisContentGeneric(container, data);
+}
+
+// Fungsi generik untuk render konten (mirip renderAnalisisContent, tapi menerima container & data)
+function renderAnalisisContentGeneric(container, data) {
+    const analysisCard = data.isHTML ? `
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 mt-6">
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+                <i class="fas fa-clipboard-check text-brand-500 mr-2"></i> Analisis
+            </h3>
+            <div class="text-gray-700 dark:text-gray-300 leading-relaxed">${data.analysis || ''}</div>
+        </div>
+    ` : `
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 mt-6">
+            <h3 class="text-xl font-bold mb-4 flex items-center">
+                <i class="fas fa-clipboard-check text-brand-500 mr-2"></i> Analisis
+            </h3>
+            <div class="text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">${data.analysis || ''}</div>
+        </div>
+    `;
+
+    let contentHTML = '';
+
+    switch (data.type) {
+        case 'pdf':
+            contentHTML = `
+                <div class="glass p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-file-pdf text-3xl text-red-500 mr-3"></i>
+                        <h3 class="text-xl font-bold">${data.title}</h3>
+                    </div>
+                    <div class="w-full h-[600px] bg-white dark:bg-gray-900 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
+                        <iframe src="https://drive.google.com/file/d/${data.fileId}/preview" class="w-full h-full" style="border:0;"></iframe>
+                    </div>
+                    <div class="mt-3 flex flex-col sm:flex-row gap-3">
+                        <a href="https://drive.google.com/file/d/${data.fileId}/view" target="_blank" class="inline-flex items-center px-4 py-2 bg-brand-500 hover:bg-brand-600 text-white rounded-lg font-semibold transition">
+                            <i class="fas fa-external-link-alt mr-2"></i> Buka di Tab Baru
+                        </a>
+                        <button onclick="downloadPDF('${data.fileId}')" class="inline-flex items-center px-4 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg font-semibold transition">
+                            <i class="fas fa-download mr-2"></i> Download
+                        </button>
+                    </div>
+                </div>
+                ${analysisCard}
+            `;
+            break;
+
+        case 'website': {
+            const sites = data.websites || [{ label: data.title, url: data.websiteUrl }];
+            const previewCards = sites.map((site, idx) => `
+                <div class="glass p-6 rounded-2xl border border-gray-200 dark:border-gray-700 ${idx > 0 ? 'mt-6' : ''}">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-globe text-3xl text-blue-500 mr-3"></i>
+                        <h3 class="text-xl font-bold">${site.label}</h3>
+                    </div>
+                    <div class="w-full h-[500px] bg-white dark:bg-gray-900 rounded-xl overflow-hidden border">
+                        <iframe src="${site.url}" class="w-full h-full" style="border:0;" loading="lazy"></iframe>
+                    </div>
+                    <div class="mt-3">
+                        <a href="${site.url}" target="_blank" class="inline-flex items-center px-4 py-2 bg-brand-500 hover:bg-brand-600 text-white rounded-lg font-semibold transition">
+                            <i class="fas fa-external-link-alt mr-2"></i> Buka di Tab Baru
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+            contentHTML = previewCards + analysisCard;
+            break;
+        }
+
+        case 'youtube': {
+            const ytId = extractYouTubeID(data.youtubeUrl);
+            contentHTML = `
+                <div class="glass p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <i class="fab fa-youtube text-3xl text-red-600 mr-3"></i>
+                        <h3 class="text-xl font-bold">${data.title}</h3>
+                    </div>
+                    <div class="w-full aspect-video bg-black rounded-xl overflow-hidden border">
+                        <iframe src="https://www.youtube.com/embed/${ytId}" class="w-full h-full" style="border:0;" allowfullscreen></iframe>
+                    </div>
+                </div>
+                ${analysisCard}
+            `;
+            break;
+        }
+
+        default:
+            contentHTML = analysisCard;
+    }
+
+    container.innerHTML = contentHTML;
+}
+
+// Fungsi navigasi dari navbar
+function navigateToPortofolio2Siklus(siklusId) {
+    switchPage('portofolio-2');
+    setTimeout(() => {
+        setActiveSiklusTab(siklusId);
+        setActiveAnalisisTab2('analisis-rpp');
+    }, 300);
 }
 
 // Helper untuk menghindari konflik karakter HTML dalam string template
